@@ -30,6 +30,7 @@ Route.post('/register', 'AuthController.register');
 
 Route.group(() => {
     Route.get('/dashboard', 'DashboardController.showIndex');
-    Route.get('/me', 'DashboardController.showMe');
+    Route.get('/me', 'AccountsController.showMe');
     Route.get('/logout', 'AuthController.logout');
+    Route.get('/account/delete', 'AccountsController.delete');
 }).middleware(['auth']);

@@ -63,7 +63,7 @@
           </script>
           <div class="d-flex align-items-center">
             <div class="toggle-icon-wrapper">
-              <button class="btn navbar-toggler-humburger-icon navbar-vertical-toggle" data-bs-toggle="tooltip" data-bs-placement="left" title="Toggle Navigation">
+              <button class="btn navbar-toggler-humburger-icon navbar-vertical-toggle" data-bs-toggle="tooltip" data-bs-placement="left">
                 <span class="navbar-toggle-icon">
                   <span class="toggle-line"></span>
                 </span>
@@ -86,37 +86,6 @@
                       <span class="nav-link-text ps-1">Página Inícial</span>
                     </div>
                   </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link dropdown-indicator" href="#dashboard" role="button" data-bs-toggle="collapse" aria-expanded="true" aria-controls="dashboard">
-                    <div class="d-flex align-items-center"><span class="nav-link-icon"><span class="fas fa-chart-pie"></span></span><span class="nav-link-text ps-1">Dashboard</span></div>
-                  </a>
-                  <ul class="nav collapse" id="dashboard">
-                    <li class="nav-item"><a class="nav-link" href="index-2.html">
-                        <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Default</span></div>
-                      </a>
-                    </li>
-                    <li class="nav-item"><a class="nav-link" href="dashboard/analytics.html">
-                        <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Analytics</span></div>
-                      </a>
-                    </li>
-                    <li class="nav-item"><a class="nav-link" href="dashboard/crm.html">
-                        <div class="d-flex align-items-center"><span class="nav-link-text ps-1">CRM</span></div>
-                      </a>
-                    </li>
-                    <li class="nav-item"><a class="nav-link" href="dashboard/e-commerce.html">
-                        <div class="d-flex align-items-center"><span class="nav-link-text ps-1">E commerce</span></div>
-                      </a>
-                    </li>
-                    <li class="nav-item"><a class="nav-link" href="dashboard/project-management.html">
-                        <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Management</span></div>
-                      </a>
-                    </li>
-                    <li class="nav-item"><a class="nav-link" href="dashboard/saas.html">
-                        <div class="d-flex align-items-center"><span class="nav-link-text ps-1">SaaS</span></div>
-                      </a>
-                    </li>
-                  </ul>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link dropdown-indicator" href="#config" role="button" data-bs-toggle="collapse" aria-expanded="true" aria-controls="config">
@@ -242,8 +211,15 @@
                     <h5 class="mb-0">Configuração de cobrança</h5>
                   </div>
                   <div class="card-body bg-light">
+                    @if(plan.plan == 'FREE')
+                    <p class="fs-0">
+                      Seu plano atual é <strong class="fw-bold">{{plan.plan}}</strong>
+                    </p>
+                    @else
                     <h5>Plano atual</h5>
-                    <p class="fs-0"><strong>STARTER</strong>- Vencimento em <b>30</b> dias</p><a class="btn btn-falcon-default btn-sm" href="#!">Atualizar plano</a>
+                    <p class="fs-0"><strong class="fw-bold">{{plan.plan}}</strong> - Vencimento em <b class="fw-bold">{{plan.days_plan_expiration}}</b> dias</p>
+                    @endif
+                    <a class="btn btn-falcon-default btn-sm" href="#!">Atualizar plano</a>
                   </div>
                 </div>
                 <div class="card mb-3">
@@ -273,8 +249,8 @@
                   </div>
                   <div class="card-body bg-light">
                     <h5 class="fs-0">Exclua esta conta</h5>
-                    <p class="fs--1">Depois de excluir uma conta, não há como voltar atrás. Por favor, esteja certo.</p>
-                    <a class="btn btn-falcon-danger d-block" href="#!">Desativar conta</a>
+                    <p class="fs--1 text-justify">Depois de excluir uma conta, não há como voltar atrás, caso tiver saldo, ou até mesmo plano com tempo válido ainda será deletado. Por favor, esteja certo.</p>
+                    <a class="btn btn-falcon-danger d-block" href="/account/delete">Desativar conta</a>
                   </div>
                 </div>
               </div>

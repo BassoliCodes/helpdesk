@@ -63,7 +63,7 @@
           </script>
           <div class="d-flex align-items-center">
             <div class="toggle-icon-wrapper">
-              <button class="btn navbar-toggler-humburger-icon navbar-vertical-toggle" data-bs-toggle="tooltip" data-bs-placement="left" title="Toggle Navigation">
+              <button class="btn navbar-toggler-humburger-icon navbar-vertical-toggle" data-bs-toggle="tooltip" data-bs-placement="left">
                 <span class="navbar-toggle-icon">
                   <span class="toggle-line"></span>
                 </span>
@@ -86,37 +86,6 @@
                       <span class="nav-link-text ps-1">Página Inícial</span>
                     </div>
                   </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link dropdown-indicator" href="#dashboard" role="button" data-bs-toggle="collapse" aria-expanded="true" aria-controls="dashboard">
-                    <div class="d-flex align-items-center"><span class="nav-link-icon"><span class="fas fa-chart-pie"></span></span><span class="nav-link-text ps-1">Dashboard</span></div>
-                  </a>
-                  <ul class="nav collapse" id="dashboard">
-                    <li class="nav-item"><a class="nav-link" href="index-2.html">
-                        <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Default</span></div>
-                      </a>
-                    </li>
-                    <li class="nav-item"><a class="nav-link" href="dashboard/analytics.html">
-                        <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Analytics</span></div>
-                      </a>
-                    </li>
-                    <li class="nav-item"><a class="nav-link" href="dashboard/crm.html">
-                        <div class="d-flex align-items-center"><span class="nav-link-text ps-1">CRM</span></div>
-                      </a>
-                    </li>
-                    <li class="nav-item"><a class="nav-link" href="dashboard/e-commerce.html">
-                        <div class="d-flex align-items-center"><span class="nav-link-text ps-1">E commerce</span></div>
-                      </a>
-                    </li>
-                    <li class="nav-item"><a class="nav-link" href="dashboard/project-management.html">
-                        <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Management</span></div>
-                      </a>
-                    </li>
-                    <li class="nav-item"><a class="nav-link" href="dashboard/saas.html">
-                        <div class="d-flex align-items-center"><span class="nav-link-text ps-1">SaaS</span></div>
-                      </a>
-                    </li>
-                  </ul>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link dropdown-indicator" href="#config" role="button" data-bs-toggle="collapse" aria-expanded="true" aria-controls="config">
@@ -215,13 +184,28 @@
             <div class="col-md-6 col-xxl-4 mb-3 ps-md-2 pe-xxl-2">
               <div class="card h-md-100">
                 <div class="card-header pb-0">
-                  <h6 class="mb-0 mt-2">Seu plano atual</h6>
+                  <h6 class="mb-0 mt-2">Bem vindo novamente</h6>
                 </div>
                 <div class="card-body d-flex flex-column justify-content-end">
                   <div class="row justify-content-between">
                     <div class="col-auto align-self-end">
-                      <div class="fs-4 fw-bold font-sans-serif text-700 lh-1 mb-1">STARTER</div>
-                      <span class="mb-4">Vencimento em 30 dias</span>
+                      <div class="fs-4 fw-bold font-sans-serif text-700 lh-1 mb-1">{{name[0]}} {{name[1]}}</div>
+                      <span class="mb-4">Oque deseja fazer hoje?</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-xxl-4 mb-3 ps-md-2 pe-xxl-2">
+              <div class="card h-md-100">
+                <div class="card-header pb-0">
+                  <h6 class="mb-0 mt-2">Total de artigos</h6>
+                </div>
+                <div class="card-body d-flex flex-column justify-content-end">
+                  <div class="row justify-content-between">
+                    <div class="col-auto align-self-end">
+                      <div class="fs-4 fw-bold font-sans-serif text-700 lh-1 mb-1">0</div>
+                      <span class="mb-4">Crie seu primeiro artigo!</span>
                     </div>
                   </div>
                 </div>
@@ -235,57 +219,15 @@
                 <div class="card-body d-flex flex-column justify-content-end">
                   <div class="row justify-content-between">
                     <div class="col-auto align-self-end">
-                      <div class="fs-4 fw-bold font-sans-serif text-700 lh-1 mb-1">STARTER</div>
-                      <span class="mb-4">Vencimento em 30 dias</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6 col-xxl-4 mb-3 ps-md-2 pe-xxl-2">
-              <div class="card h-md-100">
-                <div class="card-header pb-0">
-                  <h6 class="mb-0 mt-2">Seu plano atual</h6>
-                </div>
-                <div class="card-body d-flex flex-column justify-content-end">
-                  <div class="row justify-content-between">
-                    <div class="col-auto align-self-end">
-                      <div class="fs-4 fw-bold font-sans-serif text-700 lh-1 mb-1">STARTER</div>
+                      @if(!plan.days_plan_expiration == '-1')
+                      <div class="fs-4 fw-bold font-sans-serif text-700 lh-1 mb-1 text-uppercase">{{plan.plan}}</div>
                       <span class="mb-4"><i class="fas fa-stopwatch"></i> Vencimento em <b>30</b> dias</span>
+                      @else
+                      <div class="fs-4 fw-bold font-sans-serif text-700 lh-1 mb-1 text-uppercase">{{plan.plan}}</div>
+                      <span class="mb-4"> Hora de fazer upgrade. vamos?</span>
+                      @endif
                     </div>
                   </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row g-0">
-            <div class="col-lg-6 col-xl-7 col-xxl-8 mb-3 pe-lg-2 mb-3">
-              <div class="card h-lg-100">
-                <div class="card-body d-flex align-items-center">
-                  <div class="w-100">
-                    <h6 class="mb-3 text-800">Using Storage <strong class="text-dark">1775.06 MB </strong>of 2 GB</h6>
-                    <div class="progress mb-3 rounded-3" style="height: 10px;">
-                      <div class="progress-bar bg-progress-gradient border-end border-white border-2" role="progressbar" style="width: 43.72%" aria-valuenow="43.72" aria-valuemin="0" aria-valuemax="100"></div>
-                      <div class="progress-bar bg-info border-end border-white border-2" role="progressbar" style="width: 18.76%" aria-valuenow="18.76" aria-valuemin="0" aria-valuemax="100"></div>
-                      <div class="progress-bar bg-success border-end border-white border-2" role="progressbar" style="width: 9.38%" aria-valuenow="9.38" aria-valuemin="0" aria-valuemax="100"></div>
-                      <div class="progress-bar bg-200" role="progressbar" style="width: 28.14%" aria-valuenow="28.14" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                    <div class="row fs--1 fw-semi-bold text-500 g-0">
-                      <div class="col-auto d-flex align-items-center pe-3"><span class="dot bg-primary"></span><span>Regular</span><span class="d-none d-md-inline-block d-lg-none d-xxl-inline-block">(895MB)</span></div>
-                      <div class="col-auto d-flex align-items-center pe-3"><span class="dot bg-info"></span><span>System</span><span class="d-none d-md-inline-block d-lg-none d-xxl-inline-block">(379MB)</span></div>
-                      <div class="col-auto d-flex align-items-center pe-3"><span class="dot bg-success"></span><span>Shared</span><span class="d-none d-md-inline-block d-lg-none d-xxl-inline-block">(192MB)</span></div>
-                      <div class="col-auto d-flex align-items-center"><span class="dot bg-200"></span><span>Free</span><span class="d-none d-md-inline-block d-lg-none d-xxl-inline-block">(576MB)</span></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-6 col-xl-5 col-xxl-4 mb-3 ps-lg-2">
-              <div class="card h-lg-100">
-                <div class="bg-holder bg-card" style="background-image:url(assets/img/icons/spot-illustrations/corner-1.png);"></div>
-                <div class="card-body position-relative">
-                  <h5 class="text-warning">Running out of your space?</h5>
-                  <p class="fs--1 mb-0">Your storage will be running out soon. Get more space and powerful productivity features.</p><a class="btn btn-link fs--1 text-warning mt-lg-3 ps-0" href="#!">Upgrade storage<span class="fas fa-chevron-right ms-1" data-fa-transform="shrink-4 down-1"></span></a>
                 </div>
               </div>
             </div>

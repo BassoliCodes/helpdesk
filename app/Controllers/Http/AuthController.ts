@@ -27,7 +27,6 @@ export default class AuthController {
         const validatorSchema = await request.validate({
             schema: schema.create({
                 name: schema.string({}, [rules.minLength(4), rules.maxLength(255)]),
-                username: schema.string({}, [rules.minLength(4)]),
                 email: schema.string({}, [
                     rules.email(),
                     rules.minLength(4),
