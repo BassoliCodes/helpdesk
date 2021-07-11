@@ -20,7 +20,7 @@
 
 import Route from '@ioc:Adonis/Core/Route';
 
-Route.get('/', 'HomeController.index');
+Route.get('/', 'HomeController.showIndex');
 
 Route.get('/login', 'AuthController.showLogin');
 Route.post('/login', 'AuthController.login');
@@ -30,6 +30,8 @@ Route.post('/register', 'AuthController.register');
 
 Route.post('/logout', 'AuthController.logout');
 
-Route.get('/dashboard', () => {
-    return 'oi';
-});
+Route.group(() => {
+    Route.get('/dashboard', () => {
+        return 'oi';
+    });
+}).middleware(['auth']);
