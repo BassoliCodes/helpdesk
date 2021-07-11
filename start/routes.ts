@@ -28,8 +28,7 @@ Route.post('/login', 'AuthController.login');
 Route.get('/register', 'AuthController.showRegister');
 Route.post('/register', 'AuthController.register');
 
-Route.post('/logout', 'AuthController.logout');
-
 Route.group(() => {
     Route.get('/dashboard', 'DashboardController.showIndex');
+    Route.get('/logout', 'AuthController.logout');
 }).middleware(['auth']);
