@@ -1,6 +1,5 @@
 import Env from '@ioc:Adonis/Core/Env';
 import Database from '@ioc:Adonis/Lucid/Database';
-import User from 'App/Models/User';
 
 export default class HomeController {
     public async showIndex({ view }) {
