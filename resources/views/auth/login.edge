@@ -61,7 +61,7 @@
                   <div class="col-auto">
                     <h5>Faça seu login</h5>
                   </div>
-                  <div class="col-auto fs--1 text-600"><span class="mb-0 undefined">ou</span> <span><a href="register">Crie sua conta</a></span></div>
+                  <div class="col-auto fs--1 text-600"><span class="mb-0 undefined">ou</span> <span><a href="{{ route('AuthController.showRegister') }}">Crie sua conta</a></span></div>
                 </div>
                 @if (flashMessages.has('notification'))
                   <div class="text-danger mb-3 mt-3 text-center small">{{ flashMessages.get('notification') }}</div>
