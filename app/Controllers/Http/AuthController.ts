@@ -25,10 +25,11 @@ export default class AuthController {
     public async register({ request, auth, response }) {
         const validatorSchema = await request.validate({
             schema: schema.create({
-                name: schema.string({}),
-                username: schema.string({}),
+                name: schema.string({}, [rules.minLength(4), rules.maxLength(255)]),
+                username: schema.string({}, [rules.minLength(4)]),
                 email: schema.string({}, [
                     rules.email(),
+                    rules.minLength(4),
                     rules.maxLength(255),
                     rules.unique({ table: 'users', column: 'email' }),
                 ]),
@@ -37,6 +38,7 @@ export default class AuthController {
             messages: {
                 required: 'Esses campos são obrigatórios!',
                 'email.unique': 'E-mail não pode ser utilizado!',
+                minLength: 'Esses campos são obrigatórios!',
             },
         });
 
