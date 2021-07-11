@@ -3,7 +3,7 @@ import Database from '@ioc:Adonis/Lucid/Database';
 
 export default class HomeController {
     public async showIndex({ view }) {
-        const countUsers = await Database.from('users').count('*');
+        const countUsers = await Database.from('users').count('* as total');
 
         const plans = {
             free: Env.get('PLAN_FREE'),
@@ -12,6 +12,6 @@ export default class HomeController {
             enterprise: Env.get('PLAN_PROFISSIONAL'),
         };
 
-        return view.render('home', { totalUsers: countUsers[0]['count(*)'], plans });
+        return view.render('home', { totalUsers: countUsers[0].total, plans });
     }
 }
