@@ -31,7 +31,5 @@ Route.post('/register', 'AuthController.register');
 Route.post('/logout', 'AuthController.logout');
 
 Route.group(() => {
-    Route.get('/dashboard', () => {
-        return 'oi';
-    });
+    Route.get('/dashboard', 'DashboardController.showIndex');
 }).middleware(['auth']);

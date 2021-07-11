@@ -79,9 +79,6 @@
         <div class="container">
           <div class="row flex-center pt-8 pt-lg-10 pb-lg-9 pb-xl-0">
             <div class="col-md-11 col-lg-8 col-xl-4 pb-7 pb-xl-9 text-center text-xl-start">
-              <a class="btn btn-outline-danger mb-4 fs--1 border-2 rounded-pill" href="#!">
-                <span class="me-2" role="img" aria-label="Gift">🎁</span>Quero ser pro!
-              </a>
               <h1 class="text-white fw-light">Para <span class="typed-text fw-bold" data-typed-text='["empresas","e-commerces","foruns"]'></span><br />tirar todas as dúvidas!</h1>
               <p class="lead text-white opacity-75">Com o nosso sistema é menos trabalho para os suportes da empresa.</p>
               <a class="btn btn-outline-light border-2 rounded-pill btn-lg mt-4 fs-0 py-2" href="{{ route('AuthController.showRegister') }}">Iniciar agora um helpdesk<span class="fas fa-play ms-2" data-fa-transform="shrink-6 down-1"></span></a>
@@ -205,7 +202,8 @@
         <div class="container">
           <div class="row justify-content-center text-center">
             <div class="col-lg-8">
-              <p class="fs-3 fs-sm-4 text-white">Join our community of 20,000+ developers and content creators on their mission to build better sites and apps.</p><button class="btn btn-outline-light border-2 rounded-pill btn-lg mt-4 fs-0 py-2" type="button">Start your webapp</button>
+              <p class="fs-3 fs-sm-4 text-white">Até o momento já temos <b>{{totalUsers}}</b> clientes usando nosso sistema de helpdesk pela internet, venha fazer parte!</p>
+              <a class="btn btn-outline-light border-2 rounded-pill btn-lg mt-4 fs-0 py-2" href="{{ route('AuthController.showRegister') }}" type="button">Criar minha conta!</a>
             </div>
           </div>
         </div>
@@ -218,39 +216,39 @@
           <div class="position-absolute btn-back-to-top bg-dark"><a class="text-600" href="#banner" data-bs-offset-top="0" data-scroll-to="#banner"><span class="fas fa-chevron-up" data-fa-transform="rotate-45"></span></a></div>
           <div class="row">
             <div class="col-lg-4">
-              <h5 class="text-uppercase text-white opacity-85 mb-3">Our Mission</h5>
-              <p class="text-600">Falcon enables front end developers to build custom streamlined user interfaces in a matter of hours, while it gives backend developers all the UI elements they need to develop their web app.And it's rich design can be easily integrated with backends whether your app is based on ruby on rails, laravel, express or any other server side system.</p>
-              <div class="icon-group mt-4"><a class="icon-item bg-white text-facebook" href="#!"><span class="fab fa-facebook-f"></span></a><a class="icon-item bg-white text-twitter" href="#!"><span class="fab fa-twitter"></span></a><a class="icon-item bg-white text-google-plus" href="#!"><span class="fab fa-google-plus-g"></span></a><a class="icon-item bg-white text-linkedin" href="#!"><span class="fab fa-linkedin-in"></span></a><a class="icon-item bg-white" href="#!"><span class="fab fa-medium-m"></span></a></div>
+              <h5 class="text-uppercase text-white opacity-85 mb-3">Nossa missão!</h5>
+              <p class="text-600">A helpdesk é uma empresa onde você pode criar um famoso tira dúvidas para seus clientes ou compradores sobre sua loja/sistema, temos o intuito de trazer um dos melhores e mais bonitos sistemas para que você possa gerenciar facil e rápido!</p>
+              <div class="icon-group mt-4">
+                <a class="icon-item bg-white text-facebook" href="#!">
+                  <span class="fab fa-facebook-f"></span>
+                </a>
+                <a class="icon-item bg-white text-google-plus" href="#!">
+                  <span class="fab fa-google-plus-g"></span>
+                </a>
+              </div>
             </div>
             <div class="col ps-lg-6 ps-xl-8">
               <div class="row mt-5 mt-lg-0">
                 <div class="col-6 col-md-3">
-                  <h5 class="text-uppercase text-white opacity-85 mb-3">Company</h5>
+                  <h5 class="text-uppercase text-white opacity-85 mb-3">EMPRESA</h5>
                   <ul class="list-unstyled">
-                    <li class="mb-1"><a class="link-600" href="#!">About</a></li>
-                    <li class="mb-1"><a class="link-600" href="#!">Contact</a></li>
-                    <li class="mb-1"><a class="link-600" href="#!">Careers</a></li>
-                    <li class="mb-1"><a class="link-600" href="#!">Blog</a></li>
-                    <li class="mb-1"><a class="link-600" href="#!">Terms</a></li>
-                    <li class="mb-1"><a class="link-600" href="#!">Privacy</a></li>
-                    <li><a class="link-600" href="#!">Imprint</a></li>
+                    <li class="mb-1"><a class="link-600" href="#about">Sobre nós</a></li>
+                    <li class="mb-1"><a class="link-600" href="/contact">Contato</a></li>
+                    <li class="mb-1"><a class="link-600" href="/terms">Termos</a></li>
+                    <li class="mb-1"><a class="link-600" href="/terms">Privacidade</a></li>
                   </ul>
                 </div>
                 <div class="col-6 col-md-3">
-                  <h5 class="text-uppercase text-white opacity-85 mb-3">Product</h5>
+                  <h5 class="text-uppercase text-white opacity-85 mb-3">PLANOS</h5>
                   <ul class="list-unstyled">
-                    <li class="mb-1"><a class="link-600" href="#!">Features</a></li>
-                    <li class="mb-1"><a class="link-600" href="#!">Roadmap</a></li>
-                    <li class="mb-1"><a class="link-600" href="#!">Changelog</a></li>
-                    <li class="mb-1"><a class="link-600" href="#!">Pricing</a></li>
-                    <li class="mb-1"><a class="link-600" href="#!">Docs</a></li>
-                    <li class="mb-1"><a class="link-600" href="#!">System Status</a></li>
-                    <li class="mb-1"><a class="link-600" href="#!">Agencies</a></li>
+                    <li class="mb-1"><a class="link-600" href="#!">Free</a></li>
+                    <li class="mb-1"><a class="link-600" href="#!">Starter</a></li>
+                    <li class="mb-1"><a class="link-600" href="#!">Medium</a></li>
                     <li class="mb-1"><a class="link-600" href="#!">Enterprise</a></li>
                   </ul>
                 </div>
                 <div class="col mt-5 mt-md-0">
-                  <h5 class="text-uppercase text-white opacity-85 mb-3">From the Blog</h5>
+                  <h5 class="text-uppercase text-white opacity-85 mb-3">Nosso blog</h5>
                   <ul class="list-unstyled">
                     <li>
                       <h5 class="fs-0 mb-0"><a class="link-600" href="#!"> Interactive graphs and charts</a></h5>
@@ -263,10 +261,6 @@
                     <li>
                       <h5 class="fs-0 mb-0"><a class="link-600" href="#!"> Merry Christmas From us</a></h5>
                       <p class="text-600 opacity-50">Dec 25 &bull; 2min read</p>
-                    </li>
-                    <li>
-                      <h5 class="fs-0 mb-0"><a class="link-600" href="#!"> The New Falcon Theme</a></h5>
-                      <p class="text-600 opacity-50">Dec 23 &bull; 10min read </p>
                     </li>
                   </ul>
                 </div>
@@ -282,48 +276,16 @@
           <div class="container py-3">
             <div class="row justify-content-between fs--1">
               <div class="col-12 col-sm-auto text-center">
-                <p class="mb-0 text-600 opacity-85">Thank you for creating with Falcon <span class="d-none d-sm-inline-block">| </span><br class="d-sm-none" /> 2021 &copy; <a class="text-white opacity-85" href="https://themewagon.com/">Themewagon</a></p>
+                <p class="mb-0 text-600 opacity-85">Todos os direitos reservados à HelpDesk <span class="d-none d-sm-inline-block">| </span><br class="d-sm-none" /> 2021 &copy; <a class="text-white opacity-85" href="https://bassolicodes.com.br/">BassoliCodes</a></p>
               </div>
               <div class="col-12 col-sm-auto text-center">
-                <p class="mb-0 text-600 opacity-85">v3.2.0</p>
+                <p class="mb-0 text-600 opacity-85">v1.2.6</p>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <div class="modal fade" id="authentication-modal" tabindex="-1" role="dialog" aria-labelledby="authentication-modal-label" aria-hidden="true">
-        <div class="modal-dialog mt-6" role="document">
-          <div class="modal-content border-0">
-            <div class="modal-header px-5 position-relative modal-shape-header bg-shape">
-              <div class="position-relative z-index-1 light">
-                <h4 class="mb-0 text-white" id="authentication-modal-label">Register</h4>
-                <p class="fs--1 mb-0 text-white">Please create your free Falcon account</p>
-              </div><button class="btn-close btn-close-white position-absolute top-0 end-0 mt-2 me-2" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body py-4 px-5">
-              <form>
-                <div class="mb-3"><label class="form-label" for="modal-auth-name">Name</label><input class="form-control" type="text" autocomplete="on" id="modal-auth-name" /></div>
-                <div class="mb-3"><label class="form-label" for="modal-auth-email">Email address</label><input class="form-control" type="email" autocomplete="on" id="modal-auth-email" /></div>
-                <div class="row gx-2">
-                  <div class="mb-3 col-sm-6"><label class="form-label" for="modal-auth-password">Password</label><input class="form-control" type="password" autocomplete="on" id="modal-auth-password" /></div>
-                  <div class="mb-3 col-sm-6"><label class="form-label" for="modal-auth-confirm-password">Confirm Password</label><input class="form-control" type="password" autocomplete="on" id="modal-auth-confirm-password" /></div>
-                </div>
-                <div class="form-check"><input class="form-check-input" type="checkbox" id="modal-auth-register-checkbox" /><label class="form-label" for="modal-auth-register-checkbox">I accept the <a href="#!">terms </a>and <a href="#!">privacy policy</a></label></div>
-                <div class="mb-3"><button class="btn btn-primary d-block w-100 mt-3" type="submit" name="submit">Register</button></div>
-              </form>
-              <div class="position-relative mt-5">
-                <hr class="bg-300" />
-                <div class="divider-content-center">or register with</div>
-              </div>
-              <div class="row g-2 mt-2">
-                <div class="col-sm-6"><a class="btn btn-outline-google-plus btn-sm d-block w-100" href="#"><span class="fab fa-google-plus-g me-2" data-fa-transform="grow-8"></span> google</a></div>
-                <div class="col-sm-6"><a class="btn btn-outline-facebook btn-sm d-block w-100" href="#"><span class="fab fa-facebook-square me-2" data-fa-transform="grow-8"></span> facebook</a></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
     </main>
 
     <script src="../../../vendors/popper/popper.min.js"></script>
