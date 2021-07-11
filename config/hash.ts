@@ -67,7 +67,7 @@ const hashConfig: HashConfig = {
     */
         bcrypt: {
             driver: 'bcrypt',
-            rounds: 10,
+            rounds: 12,
         },
     },
 };

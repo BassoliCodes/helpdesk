@@ -1,4 +1,3 @@
-import Hash from '@ioc:Adonis/Core/Hash';
 import User from 'App/Models/User';
 import { rules, schema } from '@ioc:Adonis/Core/Validator';
 
