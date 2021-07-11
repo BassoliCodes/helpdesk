@@ -72,12 +72,6 @@
                     @endif
                   </div>
                   <div class="mb-3">
-                    <input class="form-control {{ flashMessages.get('errors.username') ? 'is-invalid' : '' }}" type="text" name="username" autocomplete="false" placeholder="Nome de usuário" value="{{ flashMessages.get('username') || '' }}"/>
-                    @if (flashMessages.has('errors.username'))
-                      <span class="text-danger small">{{ flashMessages.get('errors.username') }}</span>
-                    @endif
-                  </div>
-                  <div class="mb-3">
                     <input class="form-control {{ flashMessages.get('errors.email') ? 'is-invalid' : '' }}" type="email" name="email" autocomplete="on" placeholder="E-mail" value="{{ flashMessages.get('email') || '' }}"/>
                     @if (flashMessages.has('errors.email'))
                       <span class="text-danger small">{{ flashMessages.get('errors.email') }}</span>
