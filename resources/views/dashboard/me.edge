@@ -1,31 +1,31 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
-
+<html lang="pt-BR" dir="ltr">
 
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Helpdesk | Dashboard</title>
+    <title>Helpdesk | Meu perfil</title>
 
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicons/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicons/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicons/favicon-16x16.png">
-    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicons/favicon.ico">
-    <link rel="manifest" href="assets/img/favicons/manifest.json">
-    <meta name="msapplication-TileImage" content="assets/img/favicons/mstile-150x150.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../assets/img/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../assets/img/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../assets/img/favicons/favicon-16x16.png">
+    <link rel="shortcut icon" type="image/x-icon" href="../../assets/img/favicons/favicon.ico">
+    <link rel="manifest" href="../../assets/img/favicons/manifest.json">
+    <meta name="msapplication-TileImage" content="../../assets/img/favicons/mstile-150x150.png">
     <meta name="theme-color" content="#ffffff">
-    <script src="assets/js/config.js"></script>
-    <script src="vendors/overlayscrollbars/OverlayScrollbars.min.js"></script>
+    <script src="../../assets/js/config.js"></script>
+    <script src="../../vendors/overlayscrollbars/OverlayScrollbars.min.js"></script>
 
+    <link href="../../vendors/flatpickr/flatpickr.min.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com/">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700%7cPoppins:300,400,500,600,700,800,900&amp;display=swap" rel="stylesheet">
-    <link href="vendors/overlayscrollbars/OverlayScrollbars.min.css" rel="stylesheet">
-    <link href="assets/css/theme-rtl.min.css" rel="stylesheet" id="style-rtl">
-    <link href="assets/css/theme.min.css" rel="stylesheet" id="style-default">
-    <link href="assets/css/user-rtl.min.css" rel="stylesheet" id="user-style-rtl">
-    <link href="assets/css/user.min.css" rel="stylesheet" id="user-style-default">
+    <link href="../../vendors/overlayscrollbars/OverlayScrollbars.min.css" rel="stylesheet">
+    <link href="../../assets/css/theme-rtl.min.css" rel="stylesheet" id="style-rtl">
+    <link href="../../assets/css/theme.min.css" rel="stylesheet" id="style-default">
+    <link href="../../assets/css/user-rtl.min.css" rel="stylesheet" id="user-style-rtl">
+    <link href="../../assets/css/user.min.css" rel="stylesheet" id="user-style-default">
     <script>
       var isRTL = JSON.parse(localStorage.getItem('isRTL'));
       if (isRTL) {
@@ -211,81 +211,71 @@
               navbarTopCombo.remove(navbarTopCombo);
             }
           </script>
-          <div class="row g-0">
-            <div class="col-md-6 col-xxl-4 mb-3 ps-md-2 pe-xxl-2">
-              <div class="card h-md-100">
-                <div class="card-header pb-0">
-                  <h6 class="mb-0 mt-2">Seu plano atual</h6>
+          <div class="row mt-4 g-0">
+            <div class="col-lg-8 pe-lg-2">
+              <div class="card mb-3">
+                <div class="card-header">
+                  <h5 class="mb-0">Configurações de perfil</h5>
                 </div>
-                <div class="card-body d-flex flex-column justify-content-end">
-                  <div class="row justify-content-between">
-                    <div class="col-auto align-self-end">
-                      <div class="fs-4 fw-bold font-sans-serif text-700 lh-1 mb-1">STARTER</div>
-                      <span class="mb-4">Vencimento em 30 dias</span>
+                <div class="card-body bg-light">
+                  <form class="row g-3">
+                    <div class="col-lg-6">
+                      <label class="form-label" for="first-name">Primeiro nome</label>
+                      <input class="form-control" id="first-name" type="text" value="{{name[0]}}" disabled/>
                     </div>
-                  </div>
+                    <div class="col-lg-6">
+                      <label class="form-label" for="last-name">Sobrenome</label>
+                      <input class="form-control" id="last-name" type="text" value="{{name[1]}}" disabled/>
+                    </div>
+                    <div class="col-lg-12 mb-3">
+                      <label class="form-label" for="email1">Endereço de e-mail</label>
+                      <input class="form-control" id="email1" type="text" value="{{user.email}}" disabled/>
+                    </div>
+                  </form>
                 </div>
               </div>
             </div>
-            <div class="col-md-6 col-xxl-4 mb-3 ps-md-2 pe-xxl-2">
-              <div class="card h-md-100">
-                <div class="card-header pb-0">
-                  <h6 class="mb-0 mt-2">Seu plano atual</h6>
-                </div>
-                <div class="card-body d-flex flex-column justify-content-end">
-                  <div class="row justify-content-between">
-                    <div class="col-auto align-self-end">
-                      <div class="fs-4 fw-bold font-sans-serif text-700 lh-1 mb-1">STARTER</div>
-                      <span class="mb-4">Vencimento em 30 dias</span>
-                    </div>
+            <div class="col-lg-4 ps-lg-2">
+              <div class="sticky-sidebar">
+                <div class="card mb-3">
+                  <div class="card-header">
+                    <h5 class="mb-0">Configuração de cobrança</h5>
+                  </div>
+                  <div class="card-body bg-light">
+                    <h5>Plano atual</h5>
+                    <p class="fs-0"><strong>STARTER</strong>- Vencimento em <b>30</b> dias</p><a class="btn btn-falcon-default btn-sm" href="#!">Atualizar plano</a>
                   </div>
                 </div>
-              </div>
-            </div>
-            <div class="col-md-6 col-xxl-4 mb-3 ps-md-2 pe-xxl-2">
-              <div class="card h-md-100">
-                <div class="card-header pb-0">
-                  <h6 class="mb-0 mt-2">Seu plano atual</h6>
-                </div>
-                <div class="card-body d-flex flex-column justify-content-end">
-                  <div class="row justify-content-between">
-                    <div class="col-auto align-self-end">
-                      <div class="fs-4 fw-bold font-sans-serif text-700 lh-1 mb-1">STARTER</div>
-                      <span class="mb-4"><i class="fas fa-stopwatch"></i> Vencimento em <b>30</b> dias</span>
-                    </div>
+                <div class="card mb-3">
+                  <div class="card-header">
+                    <h5 class="mb-0">Alterar a senha</h5>
+                  </div>
+                  <div class="card-body bg-light">
+                    <form>
+                      <div class="mb-3">
+                        <label class="form-label" for="old-password">Senha antiga</label>
+                        <input class="form-control" id="old-password" type="password" />
+                      </div>
+                      <div class="mb-3">
+                        <label class="form-label" for="new-password">Nova senha</label>
+                        <input class="form-control" id="new-password" type="password" />
+                      </div>
+                      <div class="mb-3"><label class="form-label" for="confirm-password">Confirme a Senha</label>
+                        <input class="form-control" id="confirm-password" type="password" />
+                      </div>
+                      <button class="btn btn-primary d-block w-100" type="submit">Update Password </button>
+                    </form>
                   </div>
                 </div>
-              </div>
-            </div>
-          </div>
-          <div class="row g-0">
-            <div class="col-lg-6 col-xl-7 col-xxl-8 mb-3 pe-lg-2 mb-3">
-              <div class="card h-lg-100">
-                <div class="card-body d-flex align-items-center">
-                  <div class="w-100">
-                    <h6 class="mb-3 text-800">Using Storage <strong class="text-dark">1775.06 MB </strong>of 2 GB</h6>
-                    <div class="progress mb-3 rounded-3" style="height: 10px;">
-                      <div class="progress-bar bg-progress-gradient border-end border-white border-2" role="progressbar" style="width: 43.72%" aria-valuenow="43.72" aria-valuemin="0" aria-valuemax="100"></div>
-                      <div class="progress-bar bg-info border-end border-white border-2" role="progressbar" style="width: 18.76%" aria-valuenow="18.76" aria-valuemin="0" aria-valuemax="100"></div>
-                      <div class="progress-bar bg-success border-end border-white border-2" role="progressbar" style="width: 9.38%" aria-valuenow="9.38" aria-valuemin="0" aria-valuemax="100"></div>
-                      <div class="progress-bar bg-200" role="progressbar" style="width: 28.14%" aria-valuenow="28.14" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                    <div class="row fs--1 fw-semi-bold text-500 g-0">
-                      <div class="col-auto d-flex align-items-center pe-3"><span class="dot bg-primary"></span><span>Regular</span><span class="d-none d-md-inline-block d-lg-none d-xxl-inline-block">(895MB)</span></div>
-                      <div class="col-auto d-flex align-items-center pe-3"><span class="dot bg-info"></span><span>System</span><span class="d-none d-md-inline-block d-lg-none d-xxl-inline-block">(379MB)</span></div>
-                      <div class="col-auto d-flex align-items-center pe-3"><span class="dot bg-success"></span><span>Shared</span><span class="d-none d-md-inline-block d-lg-none d-xxl-inline-block">(192MB)</span></div>
-                      <div class="col-auto d-flex align-items-center"><span class="dot bg-200"></span><span>Free</span><span class="d-none d-md-inline-block d-lg-none d-xxl-inline-block">(576MB)</span></div>
-                    </div>
+                <div class="card">
+                  <div class="card-header">
+                    <h5 class="mb-0">Zona de perigo</h5>
                   </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-6 col-xl-5 col-xxl-4 mb-3 ps-lg-2">
-              <div class="card h-lg-100">
-                <div class="bg-holder bg-card" style="background-image:url(assets/img/icons/spot-illustrations/corner-1.png);"></div>
-                <div class="card-body position-relative">
-                  <h5 class="text-warning">Running out of your space?</h5>
-                  <p class="fs--1 mb-0">Your storage will be running out soon. Get more space and powerful productivity features.</p><a class="btn btn-link fs--1 text-warning mt-lg-3 ps-0" href="#!">Upgrade storage<span class="fas fa-chevron-right ms-1" data-fa-transform="shrink-4 down-1"></span></a>
+                  <div class="card-body bg-light">
+                    <h5 class="fs-0">Exclua esta conta</h5>
+                    <p class="fs--1">Depois de excluir uma conta, não há como voltar atrás. Por favor, esteja certo.</p>
+                    <a class="btn btn-falcon-danger d-block" href="#!">Desativar conta</a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -294,17 +284,18 @@
       </div>
     </main>
 
-    <script src="vendors/popper/popper.min.js"></script>
-    <script src="vendors/bootstrap/bootstrap.min.js"></script>
-    <script src="vendors/anchorjs/anchor.min.js"></script>
-    <script src="vendors/is/is.min.js"></script>
-    <script src="vendors/echarts/echarts.min.js"></script>
-    <script src="vendors/progressbar/progressbar.min.js"></script>
-    <script src="vendors/fontawesome/all.min.js"></script>
-    <script src="vendors/lodash/lodash.min.js"></script>
-    <script src="../../../polyfill.io/v3/polyfill.min58be.js?features=window.scroll"></script>
-    <script src="vendors/list.js/list.min.js"></script>
-    <script src="assets/js/theme.js"></script>
+
+
+    <script src="../../vendors/popper/popper.min.js"></script>
+    <script src="../../vendors/bootstrap/bootstrap.min.js"></script>
+    <script src="../../vendors/anchorjs/anchor.min.js"></script>
+    <script src="../../vendors/is/is.min.js"></script>
+    <script src="../../assets/js/flatpickr.js"></script>
+    <script src="../../vendors/fontawesome/all.min.js"></script>
+    <script src="../../vendors/lodash/lodash.min.js"></script>
+    <script src="../../../../../polyfill.io/v3/polyfill.min58be.js?features=window.scroll"></script>
+    <script src="../../vendors/list.js/list.min.js"></script>
+    <script src="../../assets/js/theme.js"></script>
   </body>
 
 </html>

@@ -19,6 +19,12 @@ export default class User extends BaseModel {
     public password: string;
 
     @column()
+    public plan: string;
+
+    @column()
+    public admin: boolean;
+
+    @column()
     public banned: boolean;
 
     @column.dateTime({ autoCreate: true })

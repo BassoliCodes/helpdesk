@@ -10,6 +10,10 @@ export default class Users extends BaseSchema {
             table.string('username').notNullable();
             table.string('email').notNullable().unique();
             table.string('password').notNullable();
+            table
+                .enum('plan', ['FREE', 'STARTER', 'MEDIUM', 'ENTERPRISE'])
+                .notNullable()
+                .defaultTo('FREE');
             table.boolean('admin').defaultTo(0).notNullable();
             table.boolean('banned').defaultTo(0).notNullable();
             table.timestamps(true, true);
