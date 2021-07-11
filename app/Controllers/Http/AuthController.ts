@@ -1,5 +1,6 @@
 import User from 'App/Models/User';
 import { rules, schema } from '@ioc:Adonis/Core/Validator';
+import UserPlan from 'App/Models/UserPlan';
 
 export default class AuthController {
     public async showLogin({ view }) {
@@ -43,6 +44,11 @@ export default class AuthController {
         });
 
         const user = await User.create(validatorSchema);
+        await UserPlan.create({
+            userId: user.id,
+            days_plan_expiration: '-1',
+            plan: 'FREE',
+        });
         await auth.use('web').login(user);
 
         return response.redirect('/dashboard');
