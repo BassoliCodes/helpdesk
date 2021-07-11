@@ -3,7 +3,13 @@ import { rules, schema } from '@ioc:Adonis/Core/Validator';
 import UserPlan from 'App/Models/UserPlan';
 
 export default class AuthController {
-    public async showLogin({ view }) {
+    public async showLogin({ view, auth, response }) {
+        await auth.use('web').check();
+
+        if (auth.use('web').isLoggedIn) {
+            return response.redirect('/dashboard');
+        }
+
         return view.render('auth/login');
     }
 
