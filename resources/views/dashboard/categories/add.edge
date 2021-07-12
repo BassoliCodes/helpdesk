@@ -195,7 +195,7 @@
               <h5 class="mb-0">Todas as categorias</h5>
             </div>
             @if (flashMessages.has('notification'))
-              <div class="text-danger mb-3 mt-3 text-center small">{{ flashMessages.get('notification') }}</div>
+              <div class="text-danger mt-3 text-center">{{ flashMessages.get('notification') }}</div>
             @endif
             <form action="{{ route('DashboardController.addCategories') }}" class="p-4" method="post">
               {{ csrfField() }}

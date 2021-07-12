@@ -196,7 +196,7 @@
               <h5 class="mb-0">Todas as artigos</h5>
             </div>
             @if (flashMessages.has('notification'))
-              <div class="text-danger mb-3 mt-3 text-center small">{{ flashMessages.get('notification') }}</div>
+              <div class="text-danger text-center mt-3">{{ flashMessages.get('notification') }}</div>
             @endif
             <form action="{{ route('DashboardController.addArticles') }}" class="p-4" method="post">
               {{ csrfField() }}
@@ -208,7 +208,7 @@
               <div class="mb-3">
                 <label class="form-label" for="category">Escolha a categoria <span class="text-danger">*</span></label>
                 <select class="form-control {{ flashMessages.get('errors.categoryId') ? 'is-invalid' : '' }}" name="categoryId">
-                  <option selected>Nenhuma categoria selecionada.</option>
+                  <option selected>Nenhuma categoria selecionada ou criada.</option>
                   @each(category in categories)
                   <option value="{{category.id}}">{{category.name}}</option>
                   @endeach

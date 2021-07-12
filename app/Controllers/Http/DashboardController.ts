@@ -91,21 +91,17 @@ export default class DashboardController {
         });
     }
 
-    public async addCategories({ request, response, auth }: HttpContextContract) {
+    public async addCategories({ request, response, auth, session }: HttpContextContract) {
         await auth.use('web').authenticate();
 
-        const validatorSchema = await request.validate({
-            schema: schema.create({
-                userId: schema.number(),
-                name: schema.string({}, [rules.maxLength(255), rules.required()]),
-                description: schema.string({}, [rules.maxLength(255), rules.required()]),
-            }),
-            messages: {
-                required: 'Você precisa informar esses dados!',
-            },
-        });
+        const { userId, name, description } = request.all();
 
-        await Category.create(validatorSchema);
+        if (!userId || !name || !description) {
+            session.flash('notification', 'Você precisa preencher todos os campos!');
+            return response.redirect('back');
+        }
+
+        await Category.create({ userId, name, description });
         return response.redirect('/dashboard/categories');
     }
 
@@ -191,22 +187,22 @@ export default class DashboardController {
         });
     }
 
-    public async addArticles({ auth, request, response }: HttpContextContract) {
+    public async addArticles({ auth, request, response, session }: HttpContextContract) {
         await auth.use('web').authenticate();
 
-        const validatorSchema = await request.validate({
-            schema: schema.create({
-                userId: schema.number(),
-                categoryId: schema.number(),
-                name: schema.string({}, [rules.maxLength(255), rules.required()]),
-                description: schema.string({}, [rules.maxLength(255), rules.required()]),
-            }),
-            messages: {
-                required: 'Você precisa informar esses dados!',
-            },
-        });
+        const { userId, categoryId, name, description } = request.body();
 
-        await Article.create(validatorSchema);
+        if (!userId || !categoryId || !name || !description) {
+            session.flash('notification', 'Você precisa preencher todos os campos!');
+            return response.redirect('back');
+        }
+
+        await Article.create({
+            userId,
+            categoryId,
+            name,
+            description,
+        });
         return response.redirect('/dashboard/articles');
     }
 
