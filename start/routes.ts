@@ -1,3 +1,4 @@
+import Env from '@ioc:Adonis/Core/Env';
 /*
 |--------------------------------------------------------------------------
 | Routes
@@ -27,6 +28,10 @@ Route.post('/login', 'AuthController.login');
 
 Route.get('/register', 'AuthController.showRegister');
 Route.post('/register', 'AuthController.register');
+
+Route.group(() => {
+    Route.get('/', 'DomainsController.showIndex');
+}).domain(`:username.${Env.get('APP_DOMAIN')}`);
 
 Route.group(() => {
     Route.get('/dashboard', 'DashboardController.showIndex');
