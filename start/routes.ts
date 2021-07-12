@@ -31,7 +31,7 @@ Route.post('/register', 'AuthController.register');
 
 Route.group(() => {
     Route.get('/', 'DomainsController.showIndex');
-}).domain(`:address.${Env.get('APP_DOMAIN')}`);
+}).domain(':address');
 
 Route.group(() => {
     Route.get('/dashboard', 'DashboardController.showIndex');
