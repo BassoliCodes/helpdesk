@@ -87,6 +87,16 @@
                     </div>
                   </a>
                 </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/dashboard/categories">
+                    <div class="d-flex align-items-center">
+                      <span class="nav-link-icon">
+                        <span class="fas fa-certificate"></span>
+                      </span>
+                      <span class="nav-link-text ps-1">Categorias</span>
+                    </div>
+                  </a>
+                </li>
               </ul>
             </div>
           </div>
@@ -161,16 +171,16 @@
             <div class="col-lg-8 pe-lg-2">
               <div class="card mb-1">
                 <div class="card-header">
-                  <h5 class="mb-0">Configurações de perfil</h5>
+                  <h5 class="mb-0 fw-bold text-uppercase"><i class="fas fa-user-cog"></i> Configurações de perfil</h5>
                 </div>
                 <div class="card-body bg-light">
                   <div class="row g-3">
                     <div class="col-lg-6">
-                      <label class="form-label fw-bold">Nome completo</label><br>
+                      <label class="form-label fw-bold"><i class="fas fa-signature"></i> Nome completo</label><br>
                       <span class="fw-light">{{name[0]}} {{name[1]}}</span>
                     </div>
                     <div class="col-lg-6 mb-3">
-                      <label class="form-label fw-bold">Endereço de e-mail</label><br>
+                      <label class="form-label fw-bold"><i class="fas fa-at"></i> Endereço de e-mail</label><br>
                       <span class="fw-light">{{user.email}}</span>
                     </div>
                   </div>
@@ -181,11 +191,11 @@
               <div class="sticky-sidebar">
                 <div class="card mb-3">
                   <div class="card-header">
-                    <h5 class="mb-0">Configuração de cobrança</h5>
+                    <h5 class="mb-0 fw-bold text-uppercase"><i class="fas fa-seedling"></i> Configuração de cobrança</h5>
                   </div>
                   <div class="card-body bg-light">
                     @if(plan.plan == 'FREE')
-                    <p class="fs-0">
+                    <p class="fs-0 fw-light">
                       Seu plano atual é <strong class="fw-bold">{{plan.plan}}</strong>
                     </p>
                     @else
@@ -197,12 +207,12 @@
                 </div>
                 <div class="card">
                   <div class="card-header">
-                    <h5 class="mb-0">Zona de perigo</h5>
+                    <h5 class="mb-0 fw-bold text-uppercase"><i class="fas fa-exclamation-triangle text-danger"></i> Zona de perigo!</h5>
                   </div>
                   <div class="card-body bg-light">
-                    <h5 class="fs-0">Exclua esta conta</h5>
-                    <p class="fs--1 text-justify">Depois de excluir uma conta, não há como voltar atrás, caso tiver saldo, ou até mesmo plano com tempo válido ainda será deletado. Por favor, esteja certo.</p>
-                    <a class="btn btn-falcon-danger d-block" href="/account/delete">Desativar conta</a>
+                    <h5 class="fs-0 fw-bold">Exclua esta conta</h5>
+                    <p class="fs--1 text-justify fw-light">Depois de excluir uma conta, não há como voltar atrás, caso tiver saldo, ou até mesmo plano com tempo válido ainda será deletado. Por favor, esteja certo.</p>
+                    <a class="btn btn-falcon-danger d-block" href="/account/delete"><i class="fas fa-skull-crossbones"></i> Desativar conta</a>
                   </div>
                 </div>
               </div>
