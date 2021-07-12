@@ -209,12 +209,12 @@
               </div>
             </div>
             <div class="card-body p-0">
-              @each(article in articles)
               <div class="table-responsive">
                 <table class="table table-sm table-striped fs--1 mb-0 overflow-hidden">
+                  @each(article in articles)
                   <thead class="bg-200 text-900">
                     <tr>
-                      <th class="sort pe-1 align-middle white-space-nowrap" data-sort="name">Nome da categoria</th>
+                      <th class="sort pe-1 align-middle white-space-nowrap" data-sort="name">Nome do artigo</th>
                       <th class="sort pe-1 align-middle white-space-nowrap" data-sort="description">Descrição</th>
                       <th class="align-middle no-sort"></th>
                     </tr>
@@ -228,7 +228,7 @@
                           </div>
                         </div>
                       </td>
-                      <td class="email align-middle py-2">
+                      <td class="description align-middle py-2">
                         {{article.description}}
                       </td>
                       <td class="align-middle white-space-nowrap py-2 text-end">
@@ -236,11 +236,11 @@
                       </td>
                     </tr>
                   </tbody>
+                  @else
+                  <div class="p-3 text-center">Nenhum artigo cadastrado até o momento...</div>
+                  @endeach
                 </table>
               </div>
-              @else
-              <div class="text-center mb-3">Nenhum artigo criada até o momento, <a href="/dashboard/articles/add" class="fw-bold">clique aqui</a> e crie um novo.</div>
-              @endeach
             </div>
           </div>
         </div>
