@@ -6,10 +6,10 @@ export default class Article extends BaseModel {
     public id: number;
 
     @column()
-    public user_id: number;
+    public userId: number;
 
     @column()
-    public category_id: number;
+    public categoryId: number;
 
     @column()
     public name: string;

@@ -26,6 +26,7 @@
     <link href="../../assets/css/theme.min.css" rel="stylesheet" id="style-default">
     <link href="../../assets/css/user-rtl.min.css" rel="stylesheet" id="user-style-rtl">
     <link href="../../assets/css/user.min.css" rel="stylesheet" id="user-style-default">
+    <script src="../../vendors/ckeditor/ckeditor.js"></script>
     <script>
       var isRTL = JSON.parse(localStorage.getItem('isRTL'));
       if (isRTL) {
@@ -197,17 +198,24 @@
             @if (flashMessages.has('notification'))
               <div class="text-danger mb-3 mt-3 text-center small">{{ flashMessages.get('notification') }}</div>
             @endif
-            <form action="{{ route('DashboardController.addCategories') }}" class="p-4" method="post">
+            <form action="{{ route('DashboardController.addArticles') }}" class="p-4" method="post">
               {{ csrfField() }}
                 <input class="form-control" id="userId" type="hidden" name="userId" type="number" value="{{user.id}}" />
               <div class="mb-3">
-                <label class="form-label" for="name">Nome da categoria <span class="text-danger">*</span></label>
+                <label class="form-label" for="name">Nome do artigo <span class="text-danger">*</span></label>
                 <input class="form-control {{ flashMessages.get('errors.name') ? 'is-invalid' : '' }}" id="name" name="name" type="text" />
+              </div>
+              <div class="mb-3">
+                <label class="form-label" for="category">Escolha a categoria <span class="text-danger">*</span></label>
+                <select class="form-control" name="category">
+                  @each(category in categories)
+                  <option value="{{category.id}}">{{category.name}}</option>
+                  @endeach
+                </select>
               </div>
               <div class="mb-4">
                 <label class="form-label" for="description">Descrição <span class="text-danger">*</span></label>
-                <textarea class="form-control {{ flashMessages.get('errors.description') ? 'is-invalid' : '' }}" id="description" name="description" rows="3" maxlength="255"></textarea>
-                <small class="float-right">Minimo de 16 caracteres e máximo de 255!</small>
+                <textarea id="description" name="description" rows="10" cols="80" class="{{ flashMessages.get('errors.description') ? 'is-invalid' : '' }}"></textarea>
               </div>
               <div class="mb-3">
                 <button class="btn btn-primary d-block w-100 mt-3" type="submit" name="submit">Adicionar categoria</button>
@@ -229,6 +237,9 @@
     <script src="../../../../../../polyfill.io/v3/polyfill.min58be.js?features=window.scroll"></script>
     <script src="../../vendors/list.js/list.min.js"></script>
     <script src="../../assets/js/theme.js"></script>
+    <script>
+      CKEDITOR.replace('description');
+    </script>
   </body>
 
 </html>

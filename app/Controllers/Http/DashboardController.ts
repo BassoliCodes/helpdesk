@@ -158,7 +158,7 @@ export default class DashboardController {
         });
     }
 
-    public async addArticles({ auth, response, view }: HttpContextContract) {
+    public async showAddArticles({ auth, response, view }: HttpContextContract) {
         await auth.use('web').authenticate();
 
         const userData = await User.findBy('email', auth.user?.email);
@@ -175,12 +175,37 @@ export default class DashboardController {
             return response.redirect('/login');
         }
 
+        const allCategoryData = await Database.rawQuery(
+            'SELECT * FROM 	categories WHERE user_id = ?',
+            [userData.id],
+        );
+
         const name = userData.name.split(' ');
 
         return view.render('dashboard/article/add', {
+            categories: allCategoryData[0],
             user: userData,
             plan: planUser,
             name,
         });
+    }
+
+    public async addArticles({ auth, request, response }: HttpContextContract) {
+        await auth.use('web').authenticate();
+
+        const validatorSchema = await request.validate({
+            schema: schema.create({
+                userId: schema.number(),
+                categoryId: schema.number(),
+                name: schema.string({}, [rules.maxLength(255), rules.required()]),
+                description: schema.string({}, [rules.maxLength(255), rules.required()]),
+            }),
+            messages: {
+                required: 'Você precisa informar esses dados!',
+            },
+        });
+
+        await Category.create(validatorSchema);
+        return response.redirect('/dashboard/categories');
     }
 }
