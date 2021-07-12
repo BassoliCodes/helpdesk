@@ -207,7 +207,7 @@ export default class DashboardController {
         });
 
         await Article.create(validatorSchema);
-        return response.redirect('/dashboard/categories');
+        return response.redirect('/dashboard/articles');
     }
 
     public async deleteArticles({ request, response, auth }: HttpContextContract) {
