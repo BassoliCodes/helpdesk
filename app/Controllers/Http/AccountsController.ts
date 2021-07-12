@@ -1,11 +1,12 @@
+import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext';
 import User from 'App/Models/User';
 import UserPlan from 'App/Models/UserPlan';
 
 export default class AccountsController {
-    public async delete({ auth, response }) {
+    public async delete({ auth, response }: HttpContextContract) {
         await auth.use('web').authenticate();
 
-        const userData = await User.findBy('email', auth.user.email);
+        const userData = await User.findBy('email', auth.user?.email);
 
         if (!userData) {
             await auth.logout();
@@ -17,10 +18,10 @@ export default class AccountsController {
         return response.redirect('/login');
     }
 
-    public async showMe({ view, auth, response }) {
+    public async showMe({ view, auth, response }: HttpContextContract) {
         await auth.use('web').authenticate();
 
-        const userData = await User.findBy('email', auth.user.email);
+        const userData = await User.findBy('email', auth.user?.email);
         const name = userData?.name.split(' ');
 
         if (!userData) {

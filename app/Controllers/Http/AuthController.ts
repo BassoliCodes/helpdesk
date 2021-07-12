@@ -1,9 +1,10 @@
+import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext';
 import User from 'App/Models/User';
 import { rules, schema } from '@ioc:Adonis/Core/Validator';
 import UserPlan from 'App/Models/UserPlan';
 
 export default class AuthController {
-    public async showLogin({ view, auth, response }) {
+    public async showLogin({ view, auth, response }: HttpContextContract) {
         await auth.use('web').check();
 
         if (auth.use('web').isLoggedIn) {
@@ -13,7 +14,7 @@ export default class AuthController {
         return view.render('auth/login');
     }
 
-    public async login({ request, response, auth, session }) {
+    public async login({ request, response, auth, session }: HttpContextContract) {
         const { email, password } = request.all();
 
         const userData = await User.findBy('email', email);
@@ -27,7 +28,7 @@ export default class AuthController {
         }
     }
 
-    public async showRegister({ view }) {
+    public async showRegister({ view }: HttpContextContract) {
         return view.render('auth/register');
     }
 
@@ -61,7 +62,7 @@ export default class AuthController {
         return response.redirect('/dashboard');
     }
 
-    public async logout({ auth, response }) {
+    public async logout({ auth, response }: HttpContextContract) {
         await auth.logout();
         return response.redirect('/login');
     }
