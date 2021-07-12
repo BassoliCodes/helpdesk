@@ -33,6 +33,7 @@ Route.group(() => {
     Route.get('/me', 'AccountsController.showMe');
     Route.get('/logout', 'AuthController.logout');
     Route.get('/account/delete', 'AccountsController.delete');
+    Route.post('/me', 'AccountsController.changepass');
 }).middleware(['auth']);
 
 Route.group(() => {

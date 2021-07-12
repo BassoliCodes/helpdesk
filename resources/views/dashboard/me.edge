@@ -99,17 +99,6 @@
                   </ul>
                 </li>
               </ul>
-              <div class="settings mb-3">
-                <div class="card alert p-0 shadow-none" role="alert">
-                  <div class="btn-close-falcon-container">
-                    <div class="btn-close-falcon" aria-label="Close" data-bs-dismiss="alert"></div>
-                  </div>
-                  <div class="card-body text-center"><img src="assets/img/icons/spot-illustrations/navbar-vertical.png" alt="" width="80" />
-                    <p class="fs--2 mt-2">Vamos fazer um upgrade? <br />Garanta upgrade com super desconto!</p>
-                    <div class="d-grid"><a class="btn btn-sm btn-purchase" href="/upgrade">FAZER UPGRADE</a></div>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </nav>
@@ -181,25 +170,21 @@
           </script>
           <div class="row mt-4 g-0">
             <div class="col-lg-8 pe-lg-2">
-              <div class="card mb-3">
+              <div class="card mb-1">
                 <div class="card-header">
                   <h5 class="mb-0">Configurações de perfil</h5>
                 </div>
                 <div class="card-body bg-light">
-                  <form class="row g-3">
+                  <div class="row g-3">
                     <div class="col-lg-6">
-                      <label class="form-label" for="first-name">Primeiro nome</label>
-                      <input class="form-control" id="first-name" type="text" value="{{name[0]}}" disabled/>
+                      <label class="form-label fw-bold">Nome completo</label><br>
+                      <span class="fw-light">{{name[0]}} {{name[1]}}</span>
                     </div>
-                    <div class="col-lg-6">
-                      <label class="form-label" for="last-name">Sobrenome</label>
-                      <input class="form-control" id="last-name" type="text" value="{{name[1]}}" disabled/>
+                    <div class="col-lg-6 mb-3">
+                      <label class="form-label fw-bold">Endereço de e-mail</label><br>
+                      <span class="fw-light">{{user.email}}</span>
                     </div>
-                    <div class="col-lg-12 mb-3">
-                      <label class="form-label" for="email1">Endereço de e-mail</label>
-                      <input class="form-control" id="email1" type="text" value="{{user.email}}" disabled/>
-                    </div>
-                  </form>
+                  </div>
                 </div>
               </div>
             </div>
@@ -221,27 +206,6 @@
                     <a class="btn btn-falcon-default btn-sm" href="#!">Atualizar plano</a>
                   </div>
                 </div>
-                <div class="card mb-3">
-                  <div class="card-header">
-                    <h5 class="mb-0">Alterar a senha</h5>
-                  </div>
-                  <div class="card-body bg-light">
-                    <form>
-                      <div class="mb-3">
-                        <label class="form-label" for="old-password">Senha antiga</label>
-                        <input class="form-control" id="old-password" type="password" />
-                      </div>
-                      <div class="mb-3">
-                        <label class="form-label" for="new-password">Nova senha</label>
-                        <input class="form-control" id="new-password" type="password" />
-                      </div>
-                      <div class="mb-3"><label class="form-label" for="confirm-password">Confirme a Senha</label>
-                        <input class="form-control" id="confirm-password" type="password" />
-                      </div>
-                      <button class="btn btn-primary d-block w-100" type="submit">Update Password </button>
-                    </form>
-                  </div>
-                </div>
                 <div class="card">
                   <div class="card-header">
                     <h5 class="mb-0">Zona de perigo</h5>
@@ -258,7 +222,6 @@
         </div>
       </div>
     </main>
-
 
 
     <script src="../../vendors/popper/popper.min.js"></script>
