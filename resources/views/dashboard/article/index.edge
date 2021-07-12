@@ -184,14 +184,14 @@
             <div class="card-header">
               <div class="row flex-between-center">
                 <div class="col-4 col-sm-auto d-flex align-items-center pe-0">
-                  <h5 class="fs-0 mb-0 text-nowrap py-2 py-xl-0">Lista de categorias</h5>
+                  <h5 class="fs-0 mb-0 text-nowrap py-2 py-xl-0">Lista de artigos</h5>
                 </div>
                 <div class="col-8 col-sm-auto text-end ps-2">
                   <div id="table-customers-replace-element">
-                    <a href="/dashboard/categories/add">
+                    <a href="/dashboard/articles/add">
                       <button class="btn btn-falcon-default btn-sm" type="button">
                         <span class="fas fa-plus" data-fa-transform="shrink-3 down-2"></span>
-                        <span class="d-none d-sm-inline-block ms-1">Adicionar nova</span>
+                        <span class="d-none d-sm-inline-block ms-1">Adicionar novo</span>
                       </button>
                     </a>
                   </div>
@@ -199,7 +199,7 @@
               </div>
             </div>
             <div class="card-body p-0">
-              @each(category in categories)
+              @each(article in articles)
               <div class="table-responsive">
                 <table class="table table-sm table-striped fs--1 mb-0 overflow-hidden">
                   <thead class="bg-200 text-900">
@@ -214,22 +214,22 @@
                       <td class="name align-middle white-space-nowrap py-2">
                         <div class="d-flex d-flex align-items-center">
                           <div class="flex-1">
-                            <h5 class="mb-0 fs--1">{{category.name}}</h5>
+                            <h5 class="mb-0 fs--1">{{article.name}}</h5>
                           </div>
                         </div>
                       </td>
                       <td class="email align-middle py-2">
-                        {{category.description}}
+                        {{article.description}}
                       </td>
                       <td class="align-middle white-space-nowrap py-2 text-end">
-                        <a class="dropdown-item text-danger" href="/dashboard/categories/delete/{{category.id}}"><i class="fas fa-trash-alt"></i></a>
+                        <a class="dropdown-item text-danger" href="/dashboard/articles/delete/{{article.id}}"><i class="fas fa-trash-alt"></i></a>
                       </td>
                     </tr>
                   </tbody>
                 </table>
               </div>
               @else
-              <div class="text-center mb-3">Nenhuma categoria criada até o momento, <a href="/dashboard/categories/add" class="fw-bold">clique aqui</a> e crie uma nova.</div>
+              <div class="text-center mb-3">Nenhum artigo criada até o momento, <a href="/dashboard/articles/add" class="fw-bold">clique aqui</a> e crie um novo.</div>
               @endeach
             </div>
           </div>

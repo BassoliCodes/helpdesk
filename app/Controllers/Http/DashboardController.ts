@@ -126,4 +126,35 @@ export default class DashboardController {
         category.delete();
         return response.redirect('back');
     }
+
+    public async showArticles({ view, auth, response }: HttpContextContract) {
+        await auth.use('web').authenticate();
+
+        const userData = await User.findBy('email', auth.user?.email);
+
+        if (!userData) {
+            await auth.logout();
+            return response.redirect('/login');
+        }
+
+        const planUser = await UserPlan.findBy('user_id', userData.id);
+
+        if (!planUser) {
+            await auth.logout();
+            return response.redirect('/login');
+        }
+
+        const articlesData = await Database.rawQuery('SELECT * FROM articles WHERE user_id = ?', [
+            userData.id,
+        ]);
+
+        const name = userData.name.split(' ');
+
+        return view.render('dashboard/article/index', {
+            articles: articlesData[0],
+            user: userData,
+            plan: planUser,
+            name,
+        });
+    }
 }
