@@ -3,6 +3,7 @@ import { rules, schema } from '@ioc:Adonis/Core/Validator';
 import User from 'App/Models/User';
 import Category from 'App/Models/Category';
 import UserPlan from 'App/Models/UserPlan';
+import Database from '@ioc:Adonis/Lucid/Database';
 
 export default class DashboardController {
     public async showIndex({ view, auth, response }: HttpContextContract) {
@@ -48,9 +49,15 @@ export default class DashboardController {
             return response.redirect('/login');
         }
 
+        const categoriesData = await Database.rawQuery(
+            'SELECT * FROM categories WHERE user_id = ?',
+            [userData.id],
+        );
+
         const name = userData.name.split(' ');
 
         return view.render('dashboard/categories/index', {
+            categories: categoriesData[0],
             user: userData,
             plan: planUser,
             name,
@@ -93,12 +100,30 @@ export default class DashboardController {
                 description: schema.string({}, [rules.maxLength(255), rules.required()]),
             }),
             messages: {
-                'name.required': 'Você precisa colocar o nome da categoria!',
-                'description.required': 'A descrição é um item obrigatório!',
+                required: 'Você precisa informar esses dados!',
             },
         });
 
         await Category.create(validatorSchema);
-        return response.redirect('/dashboard');
+        return response.redirect('/dashboard/categories');
+    }
+
+    public async deleteCategories({ request, response, auth }: HttpContextContract) {
+        const { id } = request.params();
+
+        if (!id) {
+            await auth.logout();
+            return response.redirect('/login');
+        }
+
+        const category = await Category.findBy('id', id);
+
+        if (!category) {
+            await auth.logout();
+            return response.redirect('/login');
+        }
+
+        category.delete();
+        return response.redirect('back');
     }
 }
