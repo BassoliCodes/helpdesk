@@ -37,4 +37,5 @@ Route.group(() => {
 
 Route.group(() => {
     Route.get('/admin', 'AdminsController.showIndex');
+    Route.get('/admin/client', 'AdminsController.showClients');
 }).middleware(['auth', 'adminControl']);

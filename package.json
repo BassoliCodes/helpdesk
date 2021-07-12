@@ -24,6 +24,7 @@
     "@adonisjs/session": "^6.0.0",
     "@adonisjs/shield": "^7.0.4",
     "@adonisjs/view": "^6.0.0",
+    "date-fns": "^2.22.1",
     "luxon": "^1.28.0",
     "mysql": "^2.18.1",
     "phc-bcrypt": "^1.0.7",
