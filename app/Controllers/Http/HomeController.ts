@@ -1,9 +1,12 @@
 import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext';
 import Env from '@ioc:Adonis/Core/Env';
 import Database from '@ioc:Adonis/Lucid/Database';
+import User from 'App/Models/User';
 
 export default class HomeController {
-    public async showIndex({ view }: HttpContextContract) {
+    public async showIndex({ view, auth }: HttpContextContract) {
+        await auth.use('web').authenticate();
+
         const countUsers = await Database.from('users').count('* as total');
 
         const plans = {
