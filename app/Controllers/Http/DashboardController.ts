@@ -150,7 +150,7 @@ export default class DashboardController {
 
         const name = userData.name.split(' ');
 
-        return view.render('dashboard/articles/index', {
+        return view.render('dashboard/article/index', {
             articles: articlesData[0],
             user: userData,
             plan: planUser,
@@ -177,7 +177,7 @@ export default class DashboardController {
 
         const name = userData.name.split(' ');
 
-        return view.render('dashboard/articles/add', {
+        return view.render('dashboard/article/add', {
             user: userData,
             plan: planUser,
             name,
