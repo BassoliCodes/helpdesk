@@ -34,3 +34,7 @@ Route.group(() => {
     Route.get('/logout', 'AuthController.logout');
     Route.get('/account/delete', 'AccountsController.delete');
 }).middleware(['auth']);
+
+Route.group(() => {
+    Route.get('/admin', 'AdminsController.showIndex');
+}).middleware(['auth', 'adminControl']);

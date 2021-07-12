@@ -16,8 +16,10 @@ export default class AuthController {
     public async login({ request, response, auth, session }) {
         const { email, password } = request.all();
 
+        const userData = await User.findBy('email', email);
+
         try {
-            await auth.attempt(email, password);
+            await auth.attempt(email, password, userData?.admin);
             return response.redirect('/dashboard');
         } catch (error) {
             session.flash('notification', 'OPS! Informações de login estão incorretas!');
