@@ -35,6 +35,7 @@ Route.group(() => {
     Route.post('/dashboard/categories/add', 'DashboardController.addCategories');
     Route.get('/dashboard/categories/delete/:id', 'DashboardController.deleteCategories');
     Route.get('/dashboard/articles', 'DashboardController.showArticles');
+    Route.get('/dashboard/articles/add', 'DashboardController.addArticles');
     Route.get('/me', 'AccountsController.showMe');
     Route.get('/logout', 'AuthController.logout');
     Route.get('/account/delete', 'AccountsController.delete');

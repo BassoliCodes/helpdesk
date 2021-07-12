@@ -150,8 +150,34 @@ export default class DashboardController {
 
         const name = userData.name.split(' ');
 
-        return view.render('dashboard/article/index', {
+        return view.render('dashboard/articles/index', {
             articles: articlesData[0],
+            user: userData,
+            plan: planUser,
+            name,
+        });
+    }
+
+    public async addArticles({ auth, response, view }: HttpContextContract) {
+        await auth.use('web').authenticate();
+
+        const userData = await User.findBy('email', auth.user?.email);
+
+        if (!userData) {
+            await auth.logout();
+            return response.redirect('/login');
+        }
+
+        const planUser = await UserPlan.findBy('user_id', userData.id);
+
+        if (!planUser) {
+            await auth.logout();
+            return response.redirect('/login');
+        }
+
+        const name = userData.name.split(' ');
+
+        return view.render('dashboard/articles/add', {
             user: userData,
             plan: planUser,
             name,
