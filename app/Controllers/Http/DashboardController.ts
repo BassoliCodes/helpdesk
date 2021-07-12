@@ -48,10 +48,16 @@ export default class DashboardController {
 
         const name = userData.name.split(' ');
 
-        return view.render('dashboard/categories', {
+        return view.render('dashboard/categories/index', {
             user: userData,
             plan: planUser,
             name,
         });
+    }
+
+    public async showAddCategories({ view, auth }: HttpContextContract) {
+        await auth.use('web').authenticate();
+
+        return view.render('dashboard/categories/index');
     }
 }
