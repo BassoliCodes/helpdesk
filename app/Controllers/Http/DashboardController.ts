@@ -2,6 +2,7 @@ import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext';
 import { rules, schema } from '@ioc:Adonis/Core/Validator';
 import User from 'App/Models/User';
 import Category from 'App/Models/Category';
+import Article from 'App/Models/Article';
 import UserPlan from 'App/Models/UserPlan';
 import Database from '@ioc:Adonis/Lucid/Database';
 
@@ -205,7 +206,26 @@ export default class DashboardController {
             },
         });
 
-        await Category.create(validatorSchema);
+        await Article.create(validatorSchema);
         return response.redirect('/dashboard/categories');
+    }
+
+    public async deleteArticles({ request, response, auth }: HttpContextContract) {
+        const { id } = request.params();
+
+        if (!id) {
+            await auth.logout();
+            return response.redirect('/login');
+        }
+
+        const category = await Article.findBy('id', id);
+
+        if (!category) {
+            await auth.logout();
+            return response.redirect('/login');
+        }
+
+        category.delete();
+        return response.redirect('back');
     }
 }
