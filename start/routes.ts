@@ -31,6 +31,8 @@ Route.post('/register', 'AuthController.register');
 Route.group(() => {
     Route.get('/dashboard', 'DashboardController.showIndex');
     Route.get('/dashboard/categories', 'DashboardController.showCategories');
+    Route.get('/dashboard/categories/add', 'DashboardController.showAddCategories');
+    Route.post('/dashboard/categories/add', 'DashboardController.addCategories');
     Route.get('/me', 'AccountsController.showMe');
     Route.get('/logout', 'AuthController.logout');
     Route.get('/account/delete', 'AccountsController.delete');
