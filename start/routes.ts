@@ -30,10 +30,6 @@ Route.get('/register', 'AuthController.showRegister');
 Route.post('/register', 'AuthController.register');
 
 Route.group(() => {
-    Route.get('/', 'DomainsController.showIndex');
-}).domain(':address');
-
-Route.group(() => {
     Route.get('/dashboard', 'DashboardController.showIndex');
     Route.get('/dashboard/categories', 'DashboardController.showCategories');
     Route.get('/dashboard/categories/add', 'DashboardController.showAddCategories');

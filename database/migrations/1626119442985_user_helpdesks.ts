@@ -13,7 +13,7 @@ export default class UserHelpdesks extends BaseSchema {
                 .references('id')
                 .inTable('users')
                 .onDelete('CASCADE')
-                .onUpdate('CASCASE');
+                .onUpdate('CASCADE');
             table.string('address', 255).unique().notNullable();
             table.string('enterprise_name', 16).notNullable();
             table.timestamps(true, true);
