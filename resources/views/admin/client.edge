@@ -167,42 +167,51 @@
               navbarTopCombo.remove(navbarTopCombo);
             }
           </script>
-          <div class="table-responsive card scrollbar">
-            <table class="table">
-              <thead>
-                <tr>
-                  <th scope="col fw-bold">Nome completo</th>
-                  <th scope="col fw-bold">E-mail</th>
-                  <th scope="col fw-bold">Administrador</th>
-                  <th class="text-end fw-bold" scope="col">Ações</th>
-                </tr>
-              </thead>
-              <tbody>
-                @each(user in listUsers)
-                <tr>
-                  <td class="fw-light">{{user.name}}</td>
-                  <td class="fw-light">{{user.email}}</td>
-                  <td class="fw-light">
-                    @if(user.admin)
-                    <i class="fas fa-key" style="color: mediumseagreen !important;"></i>
-                    @else
-                    <i class="fas fa-key" style="color: crimson !important;"></i>
-                    @endif
-                  </td>
-                  <td class="text-end">
-                    <div>
-                      <button class="btn p-0" type="button" data-bs-toggle="tooltip" data-bs-placement="top" title="Editar dados">
-                        <span class="text-500 fas fa-edit"></span>
-                      </button>
-                      <button class="btn p-0 ms-2 text-danger" type="button" data-bs-toggle="tooltip" data-bs-placement="top" title="Deletar">
-                        <span class="text-500 fas fa-trash-alt" style="color: crimson !important;"></span>
-                      </button>
-                    </div>
-                  </td>
-                </tr>
-                @endeach
-              </tbody>
-            </table>
+          <div class="card mb-3" id="customersTable" data-list='{"valueNames":["name","email","phone","address","joined"],"page":10,"pagination":true}'>
+            <div class="card-header">
+              <div class="row flex-between-center">
+                <div class="col-4 col-sm-auto d-flex align-items-center pe-0">
+                  <h5 class="fs-0 mb-0 text-nowrap py-2 py-xl-0">Lista de usuários</h5>
+                </div>
+              </div>
+            </div>
+            <div class="card-body p-0">
+              <div class="table-responsive">
+                <table class="table table-sm table-striped fs--1 mb-0 overflow-hidden">
+                  <thead class="bg-200 text-900">
+                    <tr>
+                      <th class="sort pe-1 align-middle white-space-nowrap" data-sort="name">Nome completo</th>
+                      <th class="sort pe-1 align-middle white-space-nowrap" data-sort="email">E-mail de cadastro</th>
+                      <th class="sort pe-1 align-middle white-space-nowrap" data-sort="joined">Entrou na data</th>
+                      <th class="align-middle no-sort"></th>
+                    </tr>
+                  </thead>
+                  <tbody class="list" id="table-customers-body">
+                    @each(user in listUsers)
+                    <tr class="btn-reveal-trigger">
+                      <td class="name align-middle white-space-nowrap py-2">
+                        <div class="d-flex d-flex align-items-center">
+                          <div class="avatar avatar-xl me-2">
+                            <img class="rounded-circle" src="https://ui-avatars.com/api/?background=344050&color=fff&name={{user.name}}" alt="">
+                          </div>
+                          <div class="flex-1">
+                            <h5 class="mb-0 fs--1">{{user.name}}</h5>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="email align-middle py-2">
+                        <a href="mailto:{{user.email}}" style="text-decoration: none !important;">{{user.email}}</a>
+                      </td>
+                      <td class="joined align-middle py-2">{{user.createdAt}}</td>
+                      <td class="align-middle white-space-nowrap py-2 text-end">
+                        <a class="dropdown-item text-danger" href="/admin/delete/account/{{user.id}}"><i class="fas fa-trash-alt"></i></a>
+                      </td>
+                    </tr>
+                    @endeach
+                  </tbody>
+                </table>
+              </div>
+            </div>
           </div>
         </div>
       </div>

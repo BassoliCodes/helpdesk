@@ -28,4 +28,30 @@ export default class DashboardController {
             name,
         });
     }
+
+    public async showCategories({ view, auth, response }: HttpContextContract) {
+        await auth.use('web').authenticate();
+
+        const userData = await User.findBy('email', auth.user?.email);
+
+        if (!userData) {
+            await auth.logout();
+            return response.redirect('/login');
+        }
+
+        const planUser = await UserPlan.findBy('user_id', userData.id);
+
+        if (!planUser) {
+            await auth.logout();
+            return response.redirect('/login');
+        }
+
+        const name = userData.name.split(' ');
+
+        return view.render('dashboard/categories', {
+            user: userData,
+            plan: planUser,
+            name,
+        });
+    }
 }

@@ -25,4 +25,20 @@ export default class AdminsController {
             listUsers: usersData,
         });
     }
+
+    public async deleteAccount({ auth, response, request }: HttpContextContract) {
+        await auth.use('web').authenticate();
+
+        const { accountId } = request.params();
+
+        const userData = await User.findBy('id', accountId);
+
+        if (!userData) {
+            await auth.logout();
+            return response.redirect('/login');
+        }
+
+        await userData.delete();
+        return response.redirect('back');
+    }
 }

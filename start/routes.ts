@@ -30,6 +30,7 @@ Route.post('/register', 'AuthController.register');
 
 Route.group(() => {
     Route.get('/dashboard', 'DashboardController.showIndex');
+    Route.get('/dashboard/categories', 'DashboardController.showCategories');
     Route.get('/me', 'AccountsController.showMe');
     Route.get('/logout', 'AuthController.logout');
     Route.get('/account/delete', 'AccountsController.delete');
@@ -39,4 +40,5 @@ Route.group(() => {
 Route.group(() => {
     Route.get('/admin', 'AdminsController.showIndex');
     Route.get('/admin/client', 'AdminsController.showClients');
+    Route.get('/admin/delete/account/:accountId', 'AdminsController.deleteAccount');
 }).middleware(['auth', 'adminControl']);
