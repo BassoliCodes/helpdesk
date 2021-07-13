@@ -35,20 +35,31 @@ export default class AuthController {
     }
 
     public async register({ request, auth, response }) {
+        const regexName: any = '/^[^s]+( [^s]+)+$/';
+        const regexEmail: any =
+            '/^([a-z]){1,}([a-z0-9._-]){1,}([@]){1}([a-z]){2,}([.]){1}([a-z]){2,}([.]?){1}([a-z]?){2,}$/i';
+
         const validatorSchema = await request.validate({
             schema: schema.create({
-                name: schema.string({}, [rules.minLength(4), rules.maxLength(255)]),
+                name: schema.string({}, [
+                    rules.minLength(4),
+                    rules.maxLength(255),
+                    rules.regex(regexName),
+                ]),
                 email: schema.string({}, [
                     rules.email(),
                     rules.minLength(4),
                     rules.maxLength(255),
                     rules.unique({ table: 'users', column: 'email' }),
+                    rules.regex(regexEmail),
                 ]),
                 password: schema.string({}),
             }),
             messages: {
+                'name.regex': 'Você precisa inserir nome e sobrenome!',
                 required: 'Esses campos são obrigatórios!',
                 'email.unique': 'E-mail não pode ser utilizado!',
+                'email.regex': 'Esse e-mail é inválido!',
                 minLength: 'Esses campos são obrigatórios!',
             },
         });
