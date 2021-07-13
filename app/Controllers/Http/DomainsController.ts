@@ -3,9 +3,9 @@ import UserHelpdesk from 'App/Models/UserHelpdesk';
 
 export default class DomainsController {
     public async showIndex({ view, params }: HttpContextContract) {
-        const { helpdesk_address } = params;
+        const { address } = params;
 
-        const checkHelpDeskByAddress = await UserHelpdesk.findBy('address', helpdesk_address);
+        const checkHelpDeskByAddress = await UserHelpdesk.findBy('address', address);
 
         if (!checkHelpDeskByAddress) {
             return view.render('errors/not-found');

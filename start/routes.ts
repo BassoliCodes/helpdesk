@@ -1,3 +1,4 @@
+import Env from '@ioc:Adonis/Core/Env';
 /*
 |--------------------------------------------------------------------------
 | Routes
@@ -18,12 +19,9 @@
 |
 */
 
-import Env from '@ioc:Adonis/Core/Env';
 import Route from '@ioc:Adonis/Core/Route';
 
 Route.get('/', 'HomeController.showIndex');
-
-Route.get('/:helpdesk_address', 'DomainsController.showIndex');
 
 Route.get('/login', 'AuthController.showLogin');
 Route.post('/login', 'AuthController.login');
@@ -31,31 +29,26 @@ Route.post('/login', 'AuthController.login');
 Route.get('/register', 'AuthController.showRegister');
 Route.post('/register', 'AuthController.register');
 
-Route.group(() => {
-    Route.get('/login', 'AuthController.showLogin');
-    Route.post('/login', 'AuthController.login');
+Route.get('/:address', 'DomainsController.showIndex').domain(`helpdesk.${Env.get('APP_DOMAIN')}`);
 
-    Route.group(() => {
-        Route.get('/dashboard', 'DashboardController.showIndex');
-        Route.get('/dashboard/categories', 'DashboardController.showCategories');
-        Route.get('/dashboard/categories/add', 'DashboardController.showAddCategories');
-        Route.post('/dashboard/categories/add', 'DashboardController.addCategories');
-        Route.get('/dashboard/categories/delete/:id', 'DashboardController.deleteCategories');
-        Route.get('/dashboard/articles', 'DashboardController.showArticles');
-        Route.get('/dashboard/articles/add', 'DashboardController.showAddArticles');
-        Route.post('/dashboard/articles/add', 'DashboardController.addArticles');
-        Route.get('/dashboard/articles/delete/:id', 'DashboardController.deleteArticles');
-        Route.get('/me', 'AccountsController.showMe');
-        Route.get('/logout', 'AuthController.logout');
-        Route.get('/account/delete', 'AccountsController.delete');
-        Route.post('/me', 'AccountsController.changepass');
-    }).middleware(['auth']);
-}).domain(Env.get('APP_MANAGER_DOMAIN'));
+Route.group(() => {
+    Route.get('/dashboard', 'DashboardController.showIndex');
+    Route.get('/dashboard/categories', 'DashboardController.showCategories');
+    Route.get('/dashboard/categories/add', 'DashboardController.showAddCategories');
+    Route.post('/dashboard/categories/add', 'DashboardController.addCategories');
+    Route.get('/dashboard/categories/delete/:id', 'DashboardController.deleteCategories');
+    Route.get('/dashboard/articles', 'DashboardController.showArticles');
+    Route.get('/dashboard/articles/add', 'DashboardController.showAddArticles');
+    Route.post('/dashboard/articles/add', 'DashboardController.addArticles');
+    Route.get('/dashboard/articles/delete/:id', 'DashboardController.deleteArticles');
+    Route.get('/me', 'AccountsController.showMe');
+    Route.get('/logout', 'AuthController.logout');
+    Route.get('/account/delete', 'AccountsController.delete');
+    Route.post('/me', 'AccountsController.changepass');
+}).middleware(['auth']);
 
 Route.group(() => {
     Route.get('/admin', 'AdminsController.showIndex');
     Route.get('/admin/client', 'AdminsController.showClients');
     Route.get('/admin/delete/account/:accountId', 'AdminsController.deleteAccount');
-})
-    .middleware(['auth', 'adminControl'])
-    .domain(Env.get('APP_ADMIN_DOMAIN'));
+}).middleware(['auth', 'adminControl']);
