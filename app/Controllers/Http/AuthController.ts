@@ -47,6 +47,11 @@ export default class AuthController {
                     rules.minLength(4),
                     rules.maxLength(255),
                     rules.unique({ table: 'users', column: 'email' }),
+                    rules.regex(
+                        new RegExp(
+                            '/^(([^<>()[].,;:s@"]+(.[^<>()[].,;:s@"]+)*)|(".+"))@(([^<>().,;s@"]+.{0,1})+([^<>().,;:s@"]{2,}|[d.]+))$/',
+                        ),
+                    ),
                 ]),
                 password: schema.string({}),
             }),
