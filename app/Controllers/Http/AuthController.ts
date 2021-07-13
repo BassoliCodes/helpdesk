@@ -35,14 +35,12 @@ export default class AuthController {
     }
 
     public async register({ request, auth, response }) {
-        const regexName: any = '/^[^s]+( [^s]+)+$/';
-
         const validatorSchema = await request.validate({
             schema: schema.create({
                 name: schema.string({}, [
                     rules.minLength(4),
                     rules.maxLength(255),
-                    rules.regex(regexName),
+                    rules.regex(new RegExp('/^[^s]+( [^s]+)+$/')),
                 ]),
                 email: schema.string({}, [
                     rules.email(),
