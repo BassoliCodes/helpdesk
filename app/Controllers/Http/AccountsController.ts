@@ -1,10 +1,8 @@
 import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext';
-import { rules, schema } from '@ioc:Adonis/Core/Validator';
 import User from 'App/Models/User';
 import UserPlan from 'App/Models/UserPlan';
 import Env from '@ioc:Adonis/Core/Env';
 import UserHelpdesk from 'App/Models/UserHelpdesk';
-import Database from '@ioc:Adonis/Lucid/Database';
 
 export default class AccountsController {
     public async delete({ auth, response }: HttpContextContract) {
@@ -71,8 +69,8 @@ export default class AccountsController {
             return response.redirect('back');
         }
 
-        if (data.enterprise_name.length > 16) {
-            session.flash('notification', 'Nome da empresa é até 16 caracteres!');
+        if (data.enterprise_name.length > 35) {
+            session.flash('notification', 'Nome da empresa é até 35 caracteres!');
             return response.redirect('back');
         }
 

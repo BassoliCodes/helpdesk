@@ -11,6 +11,6 @@ export default class DomainsController {
             return view.render('errors/not-found');
         }
 
-        return view.render('helpdesk/index');
+        return view.render('helpdesk/index', { helpdeskData: checkHelpDeskByAddress });
     }
 }
