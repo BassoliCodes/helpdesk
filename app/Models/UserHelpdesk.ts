@@ -12,6 +12,9 @@ export default class UserHelpdesk extends BaseModel {
     public address: string;
 
     @column()
+    public own_domain: string;
+
+    @column()
     public enterprise_name: string;
 
     @column.dateTime({ autoCreate: true })

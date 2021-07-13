@@ -15,6 +15,7 @@ export default class UserHelpdesks extends BaseSchema {
                 .onDelete('CASCADE')
                 .onUpdate('CASCADE');
             table.string('address', 255).unique().notNullable();
+            table.string('own_domain', 255).unique().notNullable();
             table.string('enterprise_name', 16).notNullable();
             table.timestamps(true, true);
         });
