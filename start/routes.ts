@@ -42,9 +42,9 @@ Route.group(() => {
     Route.post('/dashboard/articles/add', 'DashboardController.addArticles');
     Route.get('/dashboard/articles/delete/:id', 'DashboardController.deleteArticles');
     Route.get('/me', 'AccountsController.showMe');
+    Route.post('/me', 'AccountsController.updateHelpDesk');
     Route.get('/logout', 'AuthController.logout');
     Route.get('/account/delete', 'AccountsController.delete');
-    Route.post('/me', 'AccountsController.changepass');
 }).middleware(['auth']);
 
 Route.group(() => {

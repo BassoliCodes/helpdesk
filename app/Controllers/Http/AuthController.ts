@@ -64,8 +64,8 @@ export default class AuthController {
         await UserHelpdesk.create({
             userId: user.id,
             address: generate_address,
-            own_domain: 'Não cadastrado...',
-            enterprise_name: 'Não cadastrado...',
+            own_domain: 'Não cadastrado',
+            enterprise_name: 'Não cadastrado',
         });
         await auth.use('web').login(user);
 

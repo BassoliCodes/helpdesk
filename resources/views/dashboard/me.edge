@@ -201,19 +201,38 @@
                 <div class="card-header">
                   <h5 class="mb-0 fw-bold text-uppercase"><i class="fas fa-crosshairs"></i> Configurações do HelpDesk</h5>
                 </div>
-                <form action="" method="post">
+                @if (flashMessages.has('notification'))
+                  <div class="text-danger mb-3 mt-3 text-center small">{{ flashMessages.get('notification') }}</div>
+                @endif
+                <form action="{{ route('AccountsController.updateHelpDesk') }}" method="post">
+                  {{ csrfField() }}
                   <div class="card-body bg-light">
                     <div class="row g-3">
+                      <div class="col-lg-12">
+                        <label class="form-label fw-bold"><i class="fas fa-ghost"></i> Nome da empresa</label><br>
+                        <div class="mb-3">
+                          <input class="form-control {{ flashMessages.get('errors.email') ? 'is-invalid' : '' }}" id="enterprise_name" type="text" name="enterprise_name" aria-describedby="basic-addon3" value="{{ helpdesk.enterprise_name }}" />
+                        </div>
+                      </div>
                       <div class="col-lg-12">
                         <label class="form-label fw-bold"><i class="fas fa-globe-americas"></i> Endereço do helpdesk</label><br>
                         <div class="input-group mb-3">
                           <span class="input-group-text" id="basic-addon3">helpdesk.{{ app_domain }}/</span>
-                          <input class="form-control" id="basic-url" type="text" aria-describedby="basic-addon3" />
+                          <input class="form-control {{ flashMessages.get('errors.email') ? 'is-invalid' : '' }}" id="address" type="text" name="address" aria-describedby="basic-addon3" value="{{ helpdesk.address }}" />
                         </div>
                       </div>
-                      <div class="col-lg-12 mb-3">
+                      <div class="col-lg-12">
                         <label class="form-label fw-bold"><i class="fas fa-hat-wizard"></i> Dominio customizado</label><br>
-                        <span class="fw-light">{{user.email}}</span>
+                        <div class="mb-3">
+                          @if(plan.plan == 'FREE')
+                          <p class="text-danger small">Você precisa ter o plano <b>acima do gratuito</b> para poder fazer alteração de domínio.</p>
+                          @else
+                          <input class="form-control {{ flashMessages.get('errors.email') ? 'is-invalid' : '' }}" id="own_domain" type="text" name="own_domain" aria-describedby="basic-addon3" value="{{ helpdesk.own_domain }}" />
+                          @endif
+                        </div>
+                      </div>
+                      <div class="float-right">
+                        <button class="btn btn-primary me-1 mb-1" type="submit">Salvar alterações</button>
                       </div>
                     </div>
                   </div>
