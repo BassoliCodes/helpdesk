@@ -225,7 +225,7 @@
                         <label class="form-label fw-bold"><i class="fas fa-hat-wizard"></i> Dominio customizado</label><br>
                         <div class="mb-3">
                           @if(plan.plan == 'FREE')
-                          <p class="text-danger small">Você precisa ter o plano <b>acima do gratuito</b> para poder fazer alteração de domínio.</p>
+                          <p class="text-danger small">Você precisa ter um plano <b>premium</b> para utilizar o domínio próprio.</p>
                           @else
                           <input class="form-control {{ flashMessages.get('errors.email') ? 'is-invalid' : '' }}" id="own_domain" type="text" name="own_domain" aria-describedby="basic-addon3" value="{{ helpdesk.own_domain }}" />
                           @endif
