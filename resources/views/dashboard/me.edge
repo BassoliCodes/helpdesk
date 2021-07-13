@@ -179,7 +179,7 @@
           </script>
           <div class="row mt-4 g-0">
             <div class="col-lg-8 pe-lg-2">
-              <div class="card mb-1">
+              <div class="card mb-3">
                 <div class="card-header">
                   <h5 class="mb-0 fw-bold text-uppercase"><i class="fas fa-user-cog"></i> Configurações de perfil</h5>
                 </div>
@@ -195,6 +195,29 @@
                     </div>
                   </div>
                 </div>
+              </div>
+
+              <div class="card mb-3">
+                <div class="card-header">
+                  <h5 class="mb-0 fw-bold text-uppercase"><i class="fas fa-crosshairs"></i> Configurações do HelpDesk</h5>
+                </div>
+                <form action="" method="post">
+                  <div class="card-body bg-light">
+                    <div class="row g-3">
+                      <div class="col-lg-12">
+                        <label class="form-label fw-bold"><i class="fas fa-globe-americas"></i> Endereço do helpdesk</label><br>
+                        <div class="input-group mb-3">
+                          <span class="input-group-text" id="basic-addon3">helpdesk.{{ app_domain }}/</span>
+                          <input class="form-control" id="basic-url" type="text" aria-describedby="basic-addon3" />
+                        </div>
+                      </div>
+                      <div class="col-lg-12 mb-3">
+                        <label class="form-label fw-bold"><i class="fas fa-hat-wizard"></i> Dominio customizado</label><br>
+                        <span class="fw-light">{{user.email}}</span>
+                      </div>
+                    </div>
+                  </div>
+                </form>
               </div>
             </div>
             <div class="col-lg-4 ps-lg-2">
@@ -215,12 +238,12 @@
                     <a class="btn btn-falcon-default btn-sm" href="#!">Atualizar plano</a>
                   </div>
                 </div>
-                <div class="card">
+                <div class="card mb-3">
                   <div class="card-header">
                     <h5 class="mb-0 fw-bold text-uppercase"><i class="fas fa-exclamation-triangle text-danger"></i> Zona de perigo!</h5>
                   </div>
                   <div class="card-body bg-light">
-                    <h5 class="fs-0 fw-bold">Exclua esta conta</h5>
+                    <h5 class="fs-0 fw-bold">Exclua está conta</h5>
                     <p class="fs--1 text-justify fw-light">Depois de excluir uma conta, não há como voltar atrás, caso tiver saldo, ou até mesmo plano com tempo válido ainda será deletado. Por favor, esteja certo.</p>
                     <a class="btn btn-falcon-danger d-block" href="/account/delete"><i class="fas fa-skull-crossbones"></i> Desativar conta</a>
                   </div>

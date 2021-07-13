@@ -2,6 +2,8 @@ import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext';
 import User from 'App/Models/User';
 import { rules, schema } from '@ioc:Adonis/Core/Validator';
 import UserPlan from 'App/Models/UserPlan';
+import UserHelpdesk from 'App/Models/UserHelpdesk';
+import crypto from 'crypto';
 
 export default class AuthController {
     public async showLogin({ view, auth, response }: HttpContextContract) {
@@ -51,11 +53,19 @@ export default class AuthController {
             },
         });
 
+        const generate_address = await crypto.randomBytes(5).toString('hex');
+
         const user = await User.create(validatorSchema);
         await UserPlan.create({
             userId: user.id,
             days_plan_expiration: '-1',
             plan: 'FREE',
+        });
+        await UserHelpdesk.create({
+            userId: user.id,
+            address: generate_address,
+            own_domain: 'Não cadastrado...',
+            enterprise_name: 'Não cadastrado...',
         });
         await auth.use('web').login(user);
 

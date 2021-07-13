@@ -5,11 +5,11 @@
  * file.
  */
 
-import Env from '@ioc:Adonis/Core/Env'
-import { MailConfig } from '@ioc:Adonis/Addons/Mail'
+import Env from '@ioc:Adonis/Core/Env';
+import { MailConfig } from '@ioc:Adonis/Addons/Mail';
 
 const mailConfig: MailConfig = {
-  /*
+    /*
   |--------------------------------------------------------------------------
   | Default mailer
   |--------------------------------------------------------------------------
@@ -18,9 +18,9 @@ const mailConfig: MailConfig = {
   | a mailer
   |
   */
-  mailer: 'smtp',
+    mailer: 'smtp',
 
-  /*
+    /*
   |--------------------------------------------------------------------------
   | Mailers
   |--------------------------------------------------------------------------
@@ -33,8 +33,8 @@ const mailConfig: MailConfig = {
   | sending transactional and promotional emails
   |
   */
-  mailers: {
-    /*
+    mailers: {
+        /*
     |--------------------------------------------------------------------------
     | Smtp
     |--------------------------------------------------------------------------
@@ -42,18 +42,17 @@ const mailConfig: MailConfig = {
     | Uses SMTP protocol for sending email
     |
     */
-    smtp: {
-      driver: 'smtp',
-      host: Env.get('SMTP_HOST'),
-      port: Env.get('SMTP_PORT'),
-			auth: {
-				user: Env.get('SMTP_USERNAME'),
-				pass: Env.get('SMTP_PASSWORD'),
-				type: 'login',
-			}
+        smtp: {
+            driver: 'smtp',
+            host: Env.get('SMTP_HOST'),
+            port: Env.get('SMTP_PORT'),
+            auth: {
+                user: Env.get('SMTP_USERNAME'),
+                pass: Env.get('SMTP_PASSWORD'),
+                type: 'login',
+            },
+        },
     },
+};
 
-  },
-}
-
-export default mailConfig
+export default mailConfig;
