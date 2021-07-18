@@ -30,6 +30,11 @@ Route.get('/register', 'AuthController.showRegister');
 Route.post('/register', 'AuthController.register');
 
 Route.get('/:address', 'DomainsController.showIndex').domain(`helpdesk.${Env.get('APP_DOMAIN')}`);
+Route.get('/payment/success', 'PaymentsController.showSuccessPayment');
+Route.get('/payment/search', 'PaymentsController.searchPayment');
+Route.get('/payment/cancel', ({ view }) => {
+    view.render('dashboard/payments/cancel');
+});
 
 Route.group(() => {
     Route.get('/dashboard', 'DashboardController.showIndex');
@@ -45,6 +50,7 @@ Route.group(() => {
     Route.post('/me', 'AccountsController.updateHelpDesk');
     Route.get('/logout', 'AuthController.logout');
     Route.get('/account/delete', 'AccountsController.delete');
+    Route.post('/checkout/plan', 'PaymentsController.createPayment');
 }).middleware(['auth']);
 
 Route.group(() => {

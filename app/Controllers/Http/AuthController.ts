@@ -58,7 +58,6 @@ export default class AuthController {
         const user = await User.create(validatorSchema);
         await UserPlan.create({
             userId: user.id,
-            days_plan_expiration: '-1',
             plan: 'FREE',
         });
         await UserHelpdesk.create({

@@ -23,6 +23,7 @@ export default Env.rules({
     APP_MANAGER_DOMAIN: Env.schema.string(),
     APP_ADMIN_DOMAIN: Env.schema.string(),
     APP_PAYMENTS_DOMAIN: Env.schema.string(),
+    PLAN_PRICE: Env.schema.string(),
     CACHE_VIEWS: Env.schema.boolean(),
     SESSION_DRIVER: Env.schema.string(),
     NODE_ENV: Env.schema.enum(['development', 'production', 'testing'] as const),

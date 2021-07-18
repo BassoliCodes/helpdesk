@@ -39,6 +39,7 @@ export default class AccountsController {
             app_domain: Env.get('APP_DOMAIN'),
             user: userData,
             plan: userPlanData,
+            plan_value: Env.get('PLAN_PRICE'),
             name,
         });
     }
