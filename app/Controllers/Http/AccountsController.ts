@@ -43,7 +43,7 @@ export default class AccountsController {
         });
     }
 
-    public async updateHelpDesk({ view, auth, response, request, session }: HttpContextContract) {
+    public async updateHelpDesk({ auth, response, request, session }: HttpContextContract) {
         await auth.use('web').authenticate();
 
         const userData = await User.findBy('email', auth.user?.email);
@@ -53,9 +53,7 @@ export default class AccountsController {
             return response.redirect('/login');
         }
 
-        const name = userData.name.split(' ');
         const helpdeskData = await UserHelpdesk.findBy('user_id', userData.id);
-        const userPlanData = await UserPlan.findBy('user_id', userData.id);
 
         if (!helpdeskData) {
             await auth.logout();
@@ -65,12 +63,12 @@ export default class AccountsController {
         const data = request.all();
 
         if (!data) {
-            session.flash('notification', 'Você precisa informar todos os dados!');
+            session.flash('error', 'Você precisa informar todos os dados!');
             return response.redirect('back');
         }
 
         if (data.enterprise_name.length > 35) {
-            session.flash('notification', 'Nome da empresa é até 35 caracteres!');
+            session.flash('error', 'Nome da empresa é até 35 caracteres!');
             return response.redirect('back');
         }
 
@@ -80,12 +78,7 @@ export default class AccountsController {
 
         await helpdeskData.save();
 
-        return view.render('dashboard/me', {
-            helpdesk: helpdeskData,
-            app_domain: Env.get('APP_DOMAIN'),
-            user: userData,
-            plan: userPlanData,
-            name,
-        });
+        session.flash('success', 'Os dados foram atualizados com sucesso!');
+        return response.redirect('back');
     }
 }

@@ -201,8 +201,11 @@
                 <div class="card-header">
                   <h5 class="mb-0 fw-bold text-uppercase"><i class="fas fa-crosshairs"></i> Configurações do HelpDesk</h5>
                 </div>
-                @if (flashMessages.has('notification'))
-                  <div class="text-danger mb-3 mt-3 text-center small">{{ flashMessages.get('notification') }}</div>
+                @if (flashMessages.has('error'))
+                  <div class="text-danger mb-3 mt-3 text-center">{{ flashMessages.get('error') }}</div>
+                @endif
+                @if (flashMessages.has('success'))
+                  <div class="text-success mb-3 mt-3 text-center">{{ flashMessages.get('success') }}</div>
                 @endif
                 <form action="{{ route('AccountsController.updateHelpDesk') }}" method="post">
                   {{ csrfField() }}
