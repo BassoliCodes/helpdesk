@@ -229,9 +229,9 @@
                 <div class="card-body d-flex flex-column justify-content-end">
                   <div class="row justify-content-between">
                     <div class="col-auto align-self-end">
-                      @if(!plan.days_plan_expiration == '-1')
+                      @if(plan.plan == 'PRO')
                       <div class="fs-4 fw-bold font-sans-serif text-700 lh-1 mb-1 text-uppercase">{{plan.plan}}</div>
-                      <span class="mb-4"><i class="fas fa-stopwatch"></i> Vencimento em <b>30</b> dias</span>
+                      <span class="mb-4">Seu plano é ilimitado em tudo!</span>
                       @else
                       <div class="fs-4 fw-bold font-sans-serif text-700 lh-1 mb-1 text-uppercase">{{plan.plan}}</div>
                       <span class="mb-4"> Hora de fazer upgrade. vamos?</span>
