@@ -14,11 +14,7 @@ export default class UserPlans extends BaseSchema {
                 .inTable('users')
                 .onDelete('CASCADE')
                 .onUpdate('CASCADE');
-            table
-                .enum('plan', ['FREE', 'STARTER', 'MEDIUM', 'ENTERPRISE'])
-                .notNullable()
-                .defaultTo('FREE');
-            table.string('days_plan_expiration').defaultTo('-1').notNullable();
+            table.enum('plan', ['FREE', 'PRO']).notNullable().defaultTo('FREE');
             table.timestamps(true, true);
         });
     }

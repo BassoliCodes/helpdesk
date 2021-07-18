@@ -17,6 +17,8 @@
     <meta name="theme-color" content="#ffffff">
     <script src="../../assets/js/config.js"></script>
     <script src="../../vendors/overlayscrollbars/OverlayScrollbars.min.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?version=3.52.1&features=fetch"></script>
+    <script src="https://js.stripe.com/v3/"></script>
 
     <link href="../../vendors/flatpickr/flatpickr.min.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com/">
@@ -250,12 +252,12 @@
                   </div>
                   <div class="card-body bg-light">
                     @if(plan.plan == 'FREE')
-                    <p class="fs-0 fw-light">
-                      Seu plano atual é <strong class="fw-bold">{{plan.plan}}</strong>
+                    <p class="fs-0 fw-normal">
+                      Seu plano atual é <strong class="fw-bold">{{plan.plan}}</strong>, faça um upgrade para o plano <b>PRO</b> por apenas <b>R$18,90</b> apenas 1 vez!
                     </p>
                     @else
                     <h5>Plano atual</h5>
-                    <p class="fs-0"><strong class="fw-bold">{{plan.plan}}</strong> - Vencimento em <b class="fw-bold">{{plan.days_plan_expiration}}</b> dias</p>
+                    <p class="fs-0"><strong class="fw-bold">{{plan.plan}}</strong>
                     @endif
                     <a class="btn btn-falcon-default btn-sm" href="#!">Atualizar plano</a>
                   </div>

@@ -11,9 +11,6 @@ export default class UserPlan extends BaseModel {
     @column()
     public plan: string;
 
-    @column()
-    public days_plan_expiration: string;
-
     @column.dateTime({ autoCreate: true })
     public createdAt: DateTime;
 
