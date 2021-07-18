@@ -253,7 +253,7 @@
                   <div class="card-body bg-light">
                     @if(plan.plan == 'FREE')
                     <p class="fs-0 fw-normal">
-                      Seu plano atual é <strong class="fw-bold">{{plan.plan}}</strong>, faça um upgrade para o plano <b>PRO</b> por apenas <b>R${{plan_value}}</b> apenas 1 vez!
+                      Seu plano atual é <strong class="fw-bold">{{plan.plan}}</strong>, faça um upgrade para o plano <b>PRO</b> por apenas <b>R$19,80</b> apenas 1 vez!
                     </p>
                     <form action="{{ route('PaymentsController.createPayment') }}" method="POST">
                       {{ csrfField() }}
