@@ -21,19 +21,23 @@ import Env from '@ioc:Adonis/Core/Env';
 
 import Route from '@ioc:Adonis/Core/Route';
 
-Route.get('/', 'HomeController.showIndex');
+Route.group(() => {
+    Route.get('/', 'HomeController.showIndex');
 
-Route.get('/login', 'AuthController.showLogin');
-Route.post('/login', 'AuthController.login');
+    Route.get('/login', 'AuthController.showLogin');
+    Route.post('/login', 'AuthController.login');
 
-Route.get('/register', 'AuthController.showRegister');
-Route.post('/register', 'AuthController.register');
+    Route.get('/register', 'AuthController.showRegister');
+    Route.post('/register', 'AuthController.register');
 
-Route.get('/:address', 'DomainsController.showIndex').domain(`helpdesk.${Env.get('APP_DOMAIN')}`);
+    Route.get('/:address', 'DomainsController.showIndex').domain(
+        `helpdesk.${Env.get('APP_DOMAIN')}`,
+    );
 
-Route.get('/payment/search', 'PaymentsController.searchPayment');
-Route.get('/payment/success', 'PaymentsController.showSuccessPayment');
-Route.get('/payment/cancel', 'PaymentsController.showDeclinePayment');
+    Route.get('/payment/search', 'PaymentsController.searchPayment');
+    Route.get('/payment/success', 'PaymentsController.showSuccessPayment');
+    Route.get('/payment/cancel', 'PaymentsController.showDeclinePayment');
+}).middleware(['logSystem']);
 
 Route.group(() => {
     Route.get('/dashboard', 'DashboardController.showIndex');
@@ -50,10 +54,10 @@ Route.group(() => {
     Route.get('/logout', 'AuthController.logout');
     Route.get('/account/delete', 'AccountsController.delete');
     Route.post('/checkout/plan', 'PaymentsController.createPayment');
-}).middleware(['auth']);
+}).middleware(['auth', 'logSystem']);
 
 Route.group(() => {
     Route.get('/admin', 'AdminsController.showIndex');
     Route.get('/admin/client', 'AdminsController.showClients');
     Route.get('/admin/delete/account/:accountId', 'AdminsController.deleteAccount');
-}).middleware(['auth', 'adminControl']);
+}).middleware(['auth', 'adminControl', 'logSystem']);

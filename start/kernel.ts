@@ -44,4 +44,5 @@ Server.middleware.register([
 Server.middleware.registerNamed({
     auth: () => import('App/Middleware/Auth'),
     adminControl: () => import('App/Middleware/AdminControl'),
+    logSystem: () => import('App/Middleware/LogSystem'),
 });
