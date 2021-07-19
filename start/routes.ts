@@ -54,10 +54,10 @@ Route.group(() => {
     Route.get('/logout', 'AuthController.logout');
     Route.get('/account/delete', 'AccountsController.delete');
     Route.post('/checkout/plan', 'PaymentsController.createPayment');
-}).middleware(['auth', 'logSystem']);
+}).middleware(['logSystem', 'auth']);
 
 Route.group(() => {
     Route.get('/admin', 'AdminsController.showIndex');
     Route.get('/admin/client', 'AdminsController.showClients');
     Route.get('/admin/delete/account/:accountId', 'AdminsController.deleteAccount');
-}).middleware(['auth', 'adminControl', 'logSystem']);
+}).middleware(['logSystem', 'auth', 'adminControl']);
