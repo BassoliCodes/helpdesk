@@ -1,9 +1,11 @@
 import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext';
 import User from 'App/Models/User';
+import Env from '@ioc:Adonis/Core/Env';
 import { rules, schema } from '@ioc:Adonis/Core/Validator';
 import UserPlan from 'App/Models/UserPlan';
 import UserHelpdesk from 'App/Models/UserHelpdesk';
 import crypto from 'crypto';
+import Mail from '@ioc:Adonis/Addons/Mail';
 
 export default class AuthController {
     public async showLogin({ view, auth, response }: HttpContextContract) {
@@ -67,6 +69,14 @@ export default class AuthController {
             enterprise_name: 'Não cadastrado',
         });
         await auth.use('web').login(user);
+
+        await Mail.sendLater(message => {
+            message
+                .from(Env.get('SMTP_USERNAME'))
+                .to(user.email)
+                .subject('Bem vindo a plataforma!')
+                .htmlView('emails/welcome');
+        });
 
         return response.redirect('/dashboard');
     }

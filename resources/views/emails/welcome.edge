@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+  <head>
+    <meta charset="UTF-8" />
+    <!-- utf-8 works for most cases -->
+    <meta name="viewport" content="width=device-width" />
+    <!-- Forcing initial-scale shouldn't be necessary -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Use the latest (edge) version of IE rendering engine -->
+    <meta name="x-apple-disable-message-reformatting" />
+    <!-- Disable auto-scale in iOS 10 Mail entirely -->
+    <meta name="format-detection" content="telephone=no" />
+    <!-- Disables auto linking telephone where its supported -->
+    <meta name="format-detection" content="date=no" />
+    <!-- Disables auto linking date where its supported -->
+    <meta name="format-detection" content="address=no" />
+    <!-- Disables auto linking address where its supported -->
+
+    <!-- Outlook 2013 DPI Correction for Images -->
+    <!--[if gte mso 9]><xml><o:OfficeDocumentSettings><o:AllowPNG></o:AllowPNG><o:PixelsPerInch>96</o:PixelsPerInch></o:OfficeDocumentSettings></xml><![endif]-->
+    <!--[if (mso 16)]><style type="text/css">a {text-decoration: none;}</style><![endif]-->
+    <!--[if gte mso 9]><style>sup { font-size: 100% !important; }</style><![endif]-->
+
+    <style>
+      /* CLIENT SPECIFIC STYLES */
+      #outlook a {
+        padding: 0;
+      }
+
+      .ReadMsgBody {
+        width: 100%;
+      }
+
+      .ExternalClass {
+        width: 100%;
+      }
+
+      .ExternalClass,
+      .ExternalClass p,
+      .ExternalClass span,
+      .ExternalClass font,
+      .ExternalClass td,
+      .ExternalClass div {
+        line-height: 100%;
+      }
+
+      body,
+      table,
+      td,
+      a {
+        -webkit-text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
+      }
+
+      table,
+      td {
+        mso-table-lspace: 0pt;
+        mso-table-rspace: 0pt;
+      }
+
+      img {
+        -ms-interpolation-mode: bicubic;
+      }
+
+      /* RESET STYLES */
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        outline: 0;
+      }
+
+      body {
+        height: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        width: 100% !important;
+      }
+
+      img {
+        border: 0;
+        height: auto;
+        line-height: 100%;
+        outline: none;
+        text-decoration: none;
+      }
+
+      table {
+        border-collapse: collapse !important;
+      }
+
+      table {
+        border-collapse: collapse;
+        margin: 0px auto;
+      }
+
+      .container {
+        min-width: 0 !important
+      }
+
+      /* Android 4.4 Center Hack */
+      div[style*="margin: 16px 0"] {
+        margin: 0 !important;
+      }
+
+      /* iOS BLUE LINKS */
+      a[x-apple-data-detectors] {
+        color: inherit !important;
+        text-decoration: none !important;
+        font-size: inherit !important;
+        font-family: inherit !important;
+        font-weight: inherit !important;
+        line-height: inherit !important;
+      }
+
+      /* APPLE BLUE LINKS */
+      .smart-666666 a {
+        color: #666666 !important;
+        text-decoration: none !important;
+      }
+
+      .smart-868686 a {
+        color: #868686 !important;
+        text-decoration: none !important;
+      }
+
+      .smart-BFBFBF a {
+        color: #BFBFBF !important;
+        text-decoration: none !important;
+      }
+
+      .smart-185674 a {
+        color: #185674 !important;
+        text-decoration: none !important;
+      }
+
+      .smart-263645 a {
+        color: #263645 !important;
+        text-decoration: none !important;
+      }
+
+      .smart-FFFFFF a {
+        color: #FFFFFF !important;
+        text-decoration: none !important;
+      }
+
+      /* STRIPO ROLLOVER */
+      .rollover div {
+        font-size: 0;
+      }
+
+      .rollover:hover .rollover-first {
+        max-height: 0px !important;
+        display: none !important;
+      }
+
+      .rollover:hover .rollover-second {
+        max-height: none !important;
+        display: inline-block !important;
+      }
+
+
+      /* WEB FONTS */
+      @import url("//hello.myfonts.net/count/2d9b47.css");
+
+      @font-face {
+        font-family: 'Museo Sans';
+        src: url('http://cdn.harrys.com/email/webfonts/2D9B47_0_0.eot');
+        src: url('http://cdn.harrys.com/email/webfonts/2D9B47_0_0.eot?#iefix') format('embedded-opentype'), url('http://cdn.harrys.com/email/webfonts/2D9B47_0_0.woff2') format('woff2'), url('http://cdn.harrys.com/email/webfonts/2D9B47_0_0.woff') format('woff'), url('http://cdn.harrys.com/email/webfonts/2D9B47_0_0.ttf') format('truetype');
+        font-weight: bold;
+        font-style: normal;
+      }
+
+      @font-face {
+        font-family: 'Museo Sans';
+        src: url('http://cdn.harrys.com/email/webfonts/2D9B47_1_0.eot');
+        src: url('http://cdn.harrys.com/email/webfonts/2D9B47_1_0.eot?#iefix') format('embedded-opentype'), url('http://cdn.harrys.com/email/webfonts/2D9B47_1_0.woff2') format('woff2'), url('http://cdn.harrys.com/email/webfonts/2D9B47_1_0.woff') format('woff'), url('http://cdn.harrys.com/email/webfonts/2D9B47_1_0.ttf') format('truetype');
+        font-weight: normal;
+        font-style: normal;
+      }
+
+      @font-face {
+        font-family: 'Museo Sans';
+        src: url('http://cdn.harrys.com/email/webfonts/2D9B47_2_0.eot');
+        src: url('http://cdn.harrys.com/email/webfonts/2D9B47_2_0.eot?#iefix') format('embedded-opentype'), url('http://cdn.harrys.com/email/webfonts/2D9B47_2_0.woff2') format('woff2'), url('http://cdn.harrys.com/email/webfonts/2D9B47_2_0.woff') format('woff'), url('http://cdn.harrys.com/email/webfonts/2D9B47_2_0.ttf') format('truetype');
+        font-weight: bold;
+        font-style: italic;
+      }
+
+      @font-face {
+        font-family: 'Museo Sans';
+        src: url('http://cdn.harrys.com/email/webfonts/2D9B47_3_0.eot');
+        src: url('http://cdn.harrys.com/email/webfonts/2D9B47_3_0.eot?#iefix') format('embedded-opentype'), url('http://cdn.harrys.com/email/webfonts/2D9B47_3_0.woff2') format('woff2'), url('http://cdn.harrys.com/email/webfonts/2D9B47_3_0.woff') format('woff'), url('http://cdn.harrys.com/email/webfonts/2D9B47_3_0.ttf') format('truetype');
+        font-weight: normal;
+        font-style: italic;
+      }
+
+      @font-face {
+        font-family: 'Brandon Grotesque';
+        src: url('http://cdn.harrys.com/email/webfonts/3083F9_2_0.eot');
+        src: url('http://cdn.harrys.com/email/webfonts/3083F9_2_0.eot?#iefix') format('embedded-opentype'), url('http://cdn.harrys.com/email/webfonts/3083F9_2_0.woff2') format('woff2'), url('http://cdn.harrys.com/email/webfonts/3083F9_2_0.woff') format('woff'), url('http://cdn.harrys.com/email/webfonts/3083F9_2_0.ttf') format('truetype');
+        font-weight: normal;
+        font-style: normal;
+      }
+
+      @font-face {
+        font-family: 'Brandon Grotesque';
+        src: url('http://cdn.harrys.com/email/webfonts/2D9B47_6_0.eot');
+        src: url('http://cdn.harrys.com/email/webfonts/2D9B47_6_0.eot?#iefix') format('embedded-opentype'), url('http://cdn.harrys.com/email/webfonts/2D9B47_6_0.woff2') format('woff2'), url('http://cdn.harrys.com/email/webfonts/2D9B47_6_0.woff') format('woff'), url('http://cdn.harrys.com/email/webfonts/2D9B47_6_0.ttf') format('truetype');
+        font-weight: bold;
+        font-style: normal;
+      }
+
+      /* Footer - Flamingo */
+      @font-face {
+        font-family: 'StyreneA-Light';
+        src: url(https://www.shopflamingo.com/email-assets/fonts/StyreneA-Light-Web.woff) format('woff');
+      }
+
+
+      @media screen and (-webkit-min-device-pixel-ratio: 0) {
+
+        .h1,
+        .h1 a {
+          font-family: 'Brandon Grotesque', Futura, Trebuchet MS, Arial, sans-serif !important;
+          font-size: 36px !important;
+          line-height: 52px !important;
+          letter-spacing: 1.25px !important;
+          font-weight: normal !important;
+        }
+
+        .h2,
+        .h2 a {
+          font-family: 'Brandon Grotesque', Futura, Trebuchet MS, Arial, sans-serif !important;
+          font-size: 28px !important;
+          line-height: 42px !important;
+          letter-spacing: 1px !important;
+          font-weight: normal !important;
+        }
+
+        .h3,
+        .h3 a {
+          font-family: 'Brandon Grotesque', Futura, Trebuchet MS, Arial, sans-serif !important;
+          font-size: 24px !important;
+          line-height: 36px !important;
+          letter-spacing: 1.25px !important;
+          font-weight: normal !important;
+        }
+
+        .subheader,
+        .subheader a {
+          font-family: 'Brandon Grotesque', Futura, Trebuchet MS, Arial, sans-serif !important;
+          font-size: 12px !important;
+          line-height: 24px !important;
+          letter-spacing: 2.3px !important;
+          font-weight: bold !important;
+        }
+
+        .body,
+        .body a {
+          font-family: 'Museo Sans', Verdana, Geneva, sans-serif !important;
+          font-size: 15px !important;
+          line-height: 28px !important;
+          letter-spacing: 0.75px !important;
+        }
+
+
+        .note,
+        .note a {
+          font-family: 'Museo Sans', Verdana, Geneva, sans-serif !important;
+          letter-spacing: 0.4px !important;
+        }
+
+        .large-cta,
+        .large-cta a {
+          font-family: 'Brandon Grotesque', Futura, Trebuchet MS, Arial, sans-serif !important;
+          font-size: 14px !important;
+          letter-spacing: 2px !important;
+          border-top-width: 14px !important;
+          border-bottom-width: 10px !important;
+          border-right-width: 30px !important;
+          border-left-width: 30px !important;
+          font-weight: bold !important;
+        }
+
+      }
+
+      /* MEDIA QUERY SCREEN 579px */
+      @media screen and (max-width:579px),
+      screen and (max-width:579px) {
+        u+.body-tag .container {
+          width: 100% !important;
+          width: 100vw !important;
+        }
+
+        .full-table {
+          width: 100% !important;
+          min-width: 0 !important;
+          height: auto !important;
+        }
+
+        .mobile-hide {
+          height: 1px !important;
+          display: none !important;
+          min-width: inherit !important;
+        }
+
+        .hero img {
+          width: 100% !important;
+          height: auto !important;
+        }
+
+        .mobile-column {
+          height: auto !important;
+          padding: 0 !important;
+        }
+
+        .mobile-column td {
+          text-align: center !important;
+          padding: 0 20px !important;
+        }
+
+        .bg-text {
+          width: 100% !important;
+          display: block !important;
+          padding-top: 400px !important;
+        }
+
+        .full-bg-right {
+          display: block !important;
+          background-position: 26% center !important;
+        }
+
+        .full-bg-left {
+          display: block !important;
+          background-position: 74% center !important;
+        }
+
+        .half-bg-right {
+          display: block !important;
+          background-size: cover !important;
+          background-position: left bottom !important;
+        }
+
+        .half-bg-left {
+          display: block !important;
+          background-size: cover !important;
+          background-position: right bottom !important;
+        }
+
+        .two-col-inline {
+          background: none !important;
+        }
+
+        .head {
+          display: table-header-group !important;
+          width: 100% !important;
+        }
+
+        .foot {
+          display: table-footer-group !important;
+          width: 100% !important;
+        }
+
+        /* Mobile Paddings */
+        .mobile-height-10 {
+          height: 10px !important;
+        }
+
+        .mobile-height-20 {
+          height: 20px !important;
+        }
+
+        .mobile-height-25 {
+          height: 25px !important;
+        }
+
+        .mobile-height-30 {
+          height: 30px !important;
+        }
+
+        .mobile-height-40 {
+          height: 40px !important;
+        }
+
+        .mobile-height-50 {
+          height: 50px !important;
+        }
+
+        .mobile-height-60 {
+          height: 60px !important;
+        }
+
+        .mobile-show {
+          display: block !important;
+          width: 100% !important;
+          min-width: 100% !important;
+          height: auto !important
+        }
+
+        /* Footer */
+        .footer_pipe_divider {
+          display: none !important;
+        }
+
+        #grey_footer_bar tr td {
+          padding-top: 0px !important;
+          padding-bottom: 0px !important;
+          padding-left: 20px !important;
+          padding-right: 20px !important;
+          background-color: #F7F7F7 !important;
+          border: none !important;
+        }
+
+        #grey_footer_bar a {
+          display: block !important;
+          padding: 17px 0 !important;
+          border-bottom: 1px solid #E5E5E5 !important;
+        }
+
+        #grey_footer_bar .hide_border {
+          border-bottom: none !important;
+        }
+
+        .mob-extra-pad {
+          padding-top: 30px !important;
+        }
+
+        .mobile_footer_white_bg {
+          background-color: #FFFFFF !important;
+        }
+
+        .footer_mobile_line {
+          border-top: 1px solid #e5e5e5 !important;
+        }
+
+        .mob_footer_padding {
+          padding-left: 20px !important;
+          padding-right: 20px !important;
+        }
+      }
+    </style>
+  </head>
+
+
+  <body bgcolor="#FFFFFF" style="-webkit-font-smoothing: antialiased; width:100% !important; background:#FFFFFF;-webkit-text-size-adjust:none; margin:0; padding:0; min-width:100%">
+
+    <span style="display: none !important; color: #FFFFFF; margin:0; padding:0; font-size:1px; line-height:1px;">Obrigado por criar sua conta conosco, começe a criar seus helpdesk agora mesmo!</span>
+
+    <table class="container" border="0" cellpadding="0" cellspacing="0" width="100%" style="min-width: 580px;">
+      <tbody>
+        <tr>
+          <td>
+            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+              <tbody>
+                <tr>
+                  <td bgcolor="#FFFFFF" align="center" style="padding: 22px 0px;">HELPDESK APPLICATION</td>
+                </tr>
+              </tbody>
+            </table>
+            <table align="center" cellspacing="0" cellpadding="0" width="100%">
+              <tbody>
+                <tr>
+                  <td bgcolor="#f4f5f5" align="center">
+                    <table class="full-table" cellspacing="0" cellpadding="0" align="center" width="580">
+                      <tbody>
+                        <tr>
+                          <td class="hero" align="center">
+                            <a href="#" style="border: none"><img src="https://assets.mailcharts.com/emails/images/a8635fd036192ef750fe5c9b46df22919e1c9a8b.gif" width="580" height="338" border="0" alt="walking mammoth" style="width:580px; height:338px; line-height: 338px; display:block; font-size: 14px; letter-spacing: 0px; font-family: Verdana, Geneva, sans-serif; color: #666666; font-weight:normal" data-mc-image-bytes="241331" data-mc-width="375" data-mc-height="219" data-mc-natural-width="580" data-mc-natural-height="338" /></a>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+              <tbody>
+                <tr>
+                  <td bgcolor="#f4f5f5">
+                    <table align="center" border="0" cellpadding="0" cellspacing="0" class="full-table" width="580">
+                      <tbody>
+                        <tr>
+                          <td align="center">
+                            <table width="500" border="0" align="center" cellpadding="0" cellspacing="0" class="full-table">
+                              <tbody>
+                                <tr>
+                                  <td align="center" style="padding: 0 20px">
+                                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                      <tbody>
+                                        <tr>
+                                          <td width="100%" height="40" style="font-size:1px; line-height:1px; mso-line-height-rule: exactly;"> </td>
+                                        </tr>
+                                        <tr>
+                                          <td align="center" class="h1" style="font-size: 33px; line-height: 52px; letter-spacing: 0.5px; font-family: Futura, Trebuchet MS, Arial, sans-serif; color: #263645; font-weight:normal">
+                                            Olá!
+                                          </td>
+                                        </tr>
+                                        <tr>
+                                          <td width="100%" height="25" style="font-size:1px; line-height:1px; mso-line-height-rule: exactly;"> </td>
+                                        </tr>
+                                        <tr>
+                                          <td align="center" class="body" style="font-size: 14px; line-height: 30px; letter-spacing: 0px; font-family: Verdana, Geneva, sans-serif; color: #868686; font-weight:normal">
+                                            Obrigado por criar sua conta conosco, começe a criar seus helpdesk agora mesmo!
+                                          </td>
+                                        </tr>
+                                        <tr>
+                                          <td width="100%" height="30" style="font-size:1px; line-height:1px; mso-line-height-rule: exactly;"> </td>
+                                        </tr>
+                                        <tr>
+                                          <td height="25" style="font-size:1px; line-height:1px; mso-line-height-rule: exactly;" width="100%"> </td>
+                                        </tr>
+                                        <tr>
+                                          <td width="100%" height="20" style="font-size:1px; line-height:1px; mso-line-height-rule: exactly;"> </td>
+                                        </tr>
+                                      </tbody>
+                                    </table>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>
