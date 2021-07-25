@@ -23,6 +23,11 @@ export default class AuthController {
 
         const userData = await User.findBy('email', email);
 
+        if (!userData) {
+            session.flash('notification', 'OPS! Essa conta não está cadastrada!');
+            return response.redirect('back');
+        }
+
         try {
             await auth.attempt(email, password, userData?.admin);
             return response.redirect('/dashboard');
