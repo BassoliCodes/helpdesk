@@ -4,7 +4,7 @@ import Env from '@ioc:Adonis/Core/Env';
 import { rules, schema } from '@ioc:Adonis/Core/Validator';
 import UserPlan from 'App/Models/UserPlan';
 import UserHelpdesk from 'App/Models/UserHelpdesk';
-import crypto from 'crypto';
+import { randomBytes as generateCod } from 'crypto';
 import Mail from '@ioc:Adonis/Addons/Mail';
 
 export default class AuthController {
@@ -60,7 +60,7 @@ export default class AuthController {
             },
         });
 
-        const generate_address = await crypto.randomBytes(5).toString('hex');
+        const generate_address = await generateCod(5).toString('hex');
 
         const user = await User.create(validatorSchema);
         await UserPlan.create({
