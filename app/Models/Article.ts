@@ -1,25 +1,25 @@
-import { DateTime } from 'luxon';
-import { BaseModel, column } from '@ioc:Adonis/Lucid/Orm';
+import { DateTime } from 'luxon'
+import { BaseModel, column } from '@ioc:Adonis/Lucid/Orm'
 
 export default class Article extends BaseModel {
     @column({ isPrimary: true })
-    public id: number;
+    public id: number
 
     @column()
-    public userId: number;
+    public userId: number
 
     @column()
-    public categoryId: number;
+    public categoryId: number
 
     @column()
-    public name: string;
+    public name: string
 
     @column()
-    public description: string;
+    public description: string
 
     @column.dateTime({ autoCreate: true })
-    public createdAt: DateTime;
+    public createdAt: DateTime
 
     @column.dateTime({ autoCreate: true, autoUpdate: true })
-    public updatedAt: DateTime;
+    public updatedAt: DateTime
 }
